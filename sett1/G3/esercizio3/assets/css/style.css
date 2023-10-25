@@ -1,50 +1,58 @@
 body{
     text-align: center;
-    
+    font-family:Georgia, 'Times New Roman', serif;
 }
 #logo{
-    padding: 2px;
+    padding: 12px;
 }
-#intestazionelogo{
+#intestazionelogo {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size:  24px;
     background-color: #fdfbf1;
-    color: #004d4c;
-    border-top: solid 1.5px;
-    border-color: rgb(255, 208, 0);
+    color: #004D4C;
+    border-top: solid 2px;
+    text-shadow: 0.5px 0.5px 0.5px #90ABA5;
+    border-color: rgb(255, 212, 104);
     padding: 1.5px;
 }
 
 h1{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 58px;
+    color: #333333;
     text-align: center;
     margin: 0 auto;
-    width: 20%;
-    padding-top: 50px;
-    padding-bottom: 25px;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    width: 50%;
 }
 main{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 28px;
     margin: 0 auto;
-    width: 50%;
 }
 
 #focaccia img {
-    border-radius: 10px;
-    box-shadow: 10px 5px rgb(6, 6, 6);
-    width: 53%;
+    border-radius: 15px;
+    box-shadow: 10px 10px 12px #E0E4E7;
+    width: 52%;
 }
 figcaption{
     padding: 10pt;
-    color:rgb(108, 108, 108);
+    color:#979797;
 }
 h5{
+    font-family: Times, 'Times New Roman', serif;
+    border-left:1.5px solid rgb(255, 212, 104);
+    margin-left: -1px;
     text-align: left;
-    color: rgba(236, 93, 4, 0.995);
-    width: 48%;
+    color: #B5450E;
+    width: 50%;
     margin: 0 auto;
+    padding: 25px;
+
 }
-aside {
-        text-align: left;
-        margin: 0 auto;
-        width: 25%;
-}
+
 main p{
     text-align: left;
     margin: 0 auto;
@@ -53,5 +61,23 @@ main p{
 article{
     text-align: left;
     margin: 0 auto;
-    width: 25%;
+    width: 50%;
+    font-family: Times, 'Times New Roman', serif;
+    text-align: left;
+}
+a{
+    color:#0E7676;
+}
+h3{
+    border-bottom:1.5px solid #BDF2F0;
+    padding-bottom: 20px;
+}
+aside {
+    text-align: left;
+    margin: 0 auto;
+    width: 50%;
+}
+article li{
+    line-height: 30px;
+
 }
