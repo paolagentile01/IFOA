@@ -1,0 +1,57 @@
+body{
+    text-align: center;
+    
+}
+#logo{
+    padding: 2px;
+}
+#intestazionelogo{
+    background-color: #fdfbf1;
+    color: #004d4c;
+    border-top: solid 1.5px;
+    border-color: rgb(255, 208, 0);
+    padding: 1.5px;
+}
+
+h1{
+    text-align: center;
+    margin: 0 auto;
+    width: 20%;
+    padding-top: 50px;
+    padding-bottom: 25px;
+}
+main{
+    margin: 0 auto;
+    width: 50%;
+}
+
+#focaccia img {
+    border-radius: 10px;
+    box-shadow: 10px 5px rgb(6, 6, 6);
+    width: 53%;
+}
+figcaption{
+    padding: 10pt;
+    color:rgb(108, 108, 108);
+}
+h5{
+    text-align: left;
+    color: rgba(236, 93, 4, 0.995);
+    width: 48%;
+    margin: 0 auto;
+}
+aside {
+        text-align: left;
+        margin: 0 auto;
+        width: 25%;
+}
+main p{
+    text-align: left;
+    margin: 0 auto;
+    width: 50%;
+}
+article{
+    text-align: left;
+    margin: 0 auto;
+    width: 25%;
+}
