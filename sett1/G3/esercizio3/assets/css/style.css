@@ -1,14 +1,15 @@
 body {
     text-align: center;
     color: #333333;
-    margin: 0 auto;
     font-family: Georgia, serif;
+    margin: 0 auto;
+
 }
-.articolo {
-    margin: auto;
+
+.articolo{
+    margin: 0 auto;
     width: 50%;
     text-align: left;
-
   }
 
 #logo {
@@ -30,7 +31,7 @@ h1{
     margin-bottom:25px;
 }
 
-#focaccia {
+.articolo img{
     width: 100%;
     border-radius: 15px;
     box-shadow: 10px 10px 12px #E0E4E7;    
