@@ -1,83 +1,70 @@
-body{
+body {
     text-align: center;
-    font-family:Georgia, 'Times New Roman', serif;
+    color: #333333;
+    margin: 0 auto;
+    font-family: Georgia, serif;
 }
-#logo{
-    padding: 12px;
-}
+.articolo {
+    margin: auto;
+    width: 50%;
+    text-align: left;
+
+  }
+
+#logo {
+    width: 200px;
+    margin: 1rem 0;
+  }
 #intestazionelogo {
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    font-size:  24px;
+    font-size: 0.8rem;
+    margin-bottom: 4rem;
     background-color: #fdfbf1;
     color: #004D4C;
-    border-top: solid 2px;
-    text-shadow: 0.5px 0.5px 0.5px #90ABA5;
+    border-top: solid 1px;
     border-color: rgb(255, 212, 104);
     padding: 1.5px;
 }
 
 h1{
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    font-size: 58px;
-    color: #333333;
     text-align: center;
-    margin: 0 auto;
-    padding-top: 100px;
-    padding-bottom: 50px;
-    width: 50%;
-}
-main{
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 28px;
-    margin: 0 auto;
+    margin-bottom:25px;
 }
 
-#focaccia img {
+#focaccia {
+    width: 100%;
     border-radius: 15px;
-    box-shadow: 10px 10px 12px #E0E4E7;
-    width: 52%;
+    box-shadow: 10px 10px 12px #E0E4E7;    
 }
-figcaption{
-    padding: 10pt;
+figcaption {
+    text-align: center;
+    margin-top: 10pt;
     color:#979797;
 }
-h5{
-    font-family: Times, 'Times New Roman', serif;
+#featured {
     border-left:1.5px solid rgb(255, 212, 104);
-    margin-left: -1px;
-    text-align: left;
     color: #B5450E;
-    width: 50%;
-    margin: 0 auto;
-    padding: 25px;
-
+    padding-left: 15px;
+    font-weight: lighter;
 }
 
-main p{
-    text-align: left;
-    margin: 0 auto;
-    width: 50%;
-}
-article{
-    text-align: left;
-    margin: 0 auto;
-    width: 50%;
-    font-family: Times, 'Times New Roman', serif;
-    text-align: left;
-}
-a{
+a {
     color:#0E7676;
 }
-h3{
-    border-bottom:1.5px solid #BDF2F0;
+h2 { 
+    border-bottom:1px solid #BDF2F0;
     padding-bottom: 20px;
+    font-weight: lighter;
 }
 aside {
     text-align: left;
     margin: 0 auto;
     width: 50%;
 }
-article li{
-    line-height: 30px;
 
-}
+ul {
+    margin-bottom: 2rem;
+  }
+  
+li {
+    margin-bottom: 1rem;
+  }
