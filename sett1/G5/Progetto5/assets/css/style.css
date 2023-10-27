@@ -1,0 +1,178 @@
+/* Your styles here */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins&display=swap');
+
+/* FONT Montserrat IS ALREADY BOLD*/
+body{
+    display: block;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    color: #393d41;
+    font-family: 'Open Sans', sans-serif;  
+    line-height: 1.65;
+}
+/* HEADER*/
+header{
+    background-color: black;
+}
+
+header img{
+    width: 120px;
+    padding: 1.5rem;
+}
+h1{
+    margin: 0 auto;
+    width: 50%;
+    line-height: 1.5;
+    font-family: 'Montserrat', sans-serif;
+    
+    color: #25a2c3;
+}
+
+main p{
+    margin: 0 auto;
+    width: 80%;
+}
+#firstsection{
+    background-image: url(/assets/images/banner.jpg);
+    background-size: 500px;
+    background-position:top;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+}
+
+
+/* BOTTONE*/
+
+button{
+    font-size: 12px;
+    margin-block-start: 2rem;
+    background-color: #f04c2f;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+}
+
+/* SEZIONE DUE */
+#secondsection{
+    margin-block-start: 3rem;
+    margin-block-end: 3rem;
+}
+#secondsection img{
+    width: 65%;
+    border-radius: 50%;
+    padding-top: 1.4rem;
+    padding-bottom: 1.2rem;
+}
+
+
+/* SEZIONE TESTIMONIANZE */
+#rosso{
+    background-color: #e22d0e;
+    color: white;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+}
+#rosso section{
+    margin: 0 auto;
+    margin-block-start: 1rem;
+    width: 80%;
+}
+
+#rosso p{
+    padding-top: 1.5rem;
+    font-weight: 200;
+}
+
+#rosso p:last-child{
+    margin: 0 auto;
+    padding:0;
+    font-size: 10px;
+}
+
+
+
+
+/* SEZIONE ASIDE*/
+aside{
+    padding-bottom: 3rem;
+}
+#aside img{
+    width: 100%;
+
+}
+
+figure{
+    border: 1px solid #dee1e3;
+    border-radius: 0.3rem;
+    margin: 0 auto;
+    width: 90%;
+    margin-block-start: 2rem;
+}
+figcaption{
+    margin: 1rem;
+    line-height: 1.65;
+}
+
+
+
+
+
+/* FOOTER*/
+footer{
+    background-color: #25a2c3;
+    color: white;
+    padding-bottom: 4rem;
+    padding-top: 1.5rem;
+}
+footer a{
+    color: #c8e7f0;
+}
+
+footer ul{
+    text-align: center;
+    font-size: 12px;
+    list-style-type: none;
+    margin-block-start: 0.5rem;
+    padding-inline-start: 0px;
+
+}
+
+#footer ul li:last-child a {
+    text-decoration: none;
+  }
+
+footer p{
+    font-size: 10px;
+    color: #c8e7f0;
+}
+
+
+
+/*FONT ADJUSTMENTS */
+h4{
+    margin: 0;
+    color: #25a2c3;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.65;
+}
+
+h2{
+    line-height: 1.65;
+    font-family: 'Montserrat', sans-serif;
+}
+
+i{
+    font-size: 13px;
+    font-weight: 200;
+}
+
