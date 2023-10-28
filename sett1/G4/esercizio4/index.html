@@ -1,130 +1,136 @@
 <!DOCTYPE html>
 <html lang="it">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-  </head>
-  <body> 
-
-    <div class="container">
-    <header>
-        <figure>
-        <img src="assets/img/logo.svg" alt="logo epicode"></figure>
-
-        <h4>EPICODE - IL BLOG DEI DEVELOPERS</h4>
-        <ul>
-            <li><a href="index.html" title="Home Page">HOME</a></li>
-            <li><a href="articoli.html" title="Elenco degli articoli tecnici pubblicati">ARTICOLI</a></li>
-            <li><a href="job.html" title="Candidati inviando un tuo cv">JOB</a></li>
-        </ul>
-    </header>
-
-    <div id="partecentrale">
-    <main>
-        <article>
-  <h1>Come creare un template per i post</h1>
-  <p>di Mario Rossi - pubblicato il 25-10-2020</p>
-  <p>La prima cosa da fare è suddividere in blocchi logici la pagina, identificando le parti comuni da applicare a tutte le pagine</p>
-  <p>Le varie aree saranno quindi suddivise in:</p>
-
-
-  <ul>
-    <li>Contenuti di intestazione del tag </li>
-    <li>Contenuti centrali variabili del tag (corpo principale)</li>
-    <li>Contenuti di fine pagina comuni, da inserire nel tag </li>
-  </ul>
-
-  <p>Formattazione del codice <br>Il testo dell'articolo dovrà essere formattato per identificare tutte le parti da selezionare con i CSS. Perciò i passi saranno:</p>
-  <ol>
-    <li>Contenuti di intestazione del tag </li>
-    <li>Contenuti centrali variabili del tag (corpo principale)</li>
-    <li>Contenuti di fine pagina comuni, da inserire nel tag </li>
-  </ol>
-  <p>L'applicazione di stili CSS è cresciuta negli anni fino a raggiungere la diffusione pressoché totale.</p>
-
-  <table>
-    <caption>Diffusione dei CSS</caption>
-    <thead>
-        <tr>
-          <span>
-            <th>Anno</th>
-            <th>% di utilizzo</th>
-            <th>Supporto browsers</th>
-          </span>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-
-            <td>2000</td>
-            <td>20&percnt;</td>
-            <td>17&percnt;</td>
-
-        </tr>
-        <tr>
-            <td>2002</td>
-            <td>35&percnt;</td>
-            <td>22&percnt;</td>
-        </tr>
-        <tr>
-            <td>2004</td>
-            <td>45&percnt;</td>
-            <td>42&percnt;</td>
-        </tr>
-        <tr>
-            <td>2008</td>
-            <td>80&percnt;</td>
-            <td>51&percnt;</td>
-        </tr>
-        <tr>
-            <td>2012</td>
-            <td>100&percnt;</td>
-            <td>76&percnt;</td>
-        </tr>
-    </tbody>
-</table>
-<p>Un test di validazione potrà essere fatto tramite il <a href="#">tool online</a> dedicato allo scopo. Una volta ottimizzato il tutto, avremo raggiunto il nostro obiettivo ed essere stati dei veri developers come loro:</p>
-</table>
-<iframe width="300" height="300" src="https://www.youtube.com/embed/dvOvHXruEDM"
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-<section>
-  <h3>NOVITA'</h3>
-  <p>Vuoi rimanere aggiornato su altre novità del blog? Iscriviti alla nostra newsletter:</p>
-  <form>
-      <input type="email" name="user_email" id="user_email" placeholder="inserisci l'email" required />
-      <button type="submit">Iscriviti!</button>
-  </form>
-</section>
-</article>
-
-</main>
-
-    <aside>
-      <h3>ARTICOLI COLLERATI</h3>
-      <p><a href="#">Validare il codice HTML </a> <br>
-      Categoria: develop</p>
-      
-      <p><a href="#">Correggere la sintassi</a><br>
-      Categoria: develop</p>
-     
-      <p><a href="#">Meno Kb nella pagina</a><br>
-      Categoria: ottimizzazione</p>
-    </aside>
-
-  </div>
-    <footer>
-      <p>Blog Epicode &copy;2021</p>
-      <address>Testata online di Mario Rossi, registrata con prot. n.213/2018 - via Luigi Einaudi 2 - Milano. P.IVA 00112233. <a href="mailto:info@epicode.school">info@epicode.school</a></address>
-
-    </footer>
-
-  </div>
-  </body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Pagina Web partendo da un mockup"/>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div>
+            <div>
+                <header>
+                    <img src="assets/images/logo.svg" alt="logo epicode">
+                        <nav>
+                            <p>EPICODE - IL BLOG DEI DEVELOPERS</p>
+                            <div id="menu">
+                                <ol>
+                                    <li><a href="home.index" title="Home">HOME</a></li>
+                                    <li><a href="articoli.index" title="Articoli">ARTICOLI</a></li>
+                                    <li><a href="job.index" title="Job">JOB</a></li>
+                                </ol>
+                            </div>
+                        </nav>
+                </header>
+            </div>
+            <main>
+                <article>
+                    <h1>Come creare un template per i post</h1>
+                    <p>
+                        <span>
+                            <i class="fas fa-pen-square"></i> di Mario Rossi - <i class="fas fa-clock"></i>
+                            pubblicato il 25-10-2020
+                        </span>
+                    </p>
+                    <p>La prima cosa da fare è suddividere in blocchi logici la pagina, identificando le <b>parti comuni</b> da applicare a tutte le pagine</p> 
+                    <p>Le varie aree saranno quindi suddivise in:</p>
+                    <ul>
+                        <li>Contenuti di intestazione del tag <code>&lt;header&gt;</code></li>
+                        <li>Contenuti centrali variabili del tag <code>&lt;main&gt;</code></li>
+                        <li>Contenuti di fine pagina comuni, da inserire nel tag <code>&lt;footer&gt;</code></li>
+                    </ul>
+                    <p>
+                        Formattazione del codice <br>
+                        Il testo dell'articolo dovrà essere formattato per identificare tutte le parti da <b>selezionare con i CSS</b>. Perciò i passi saranno:
+                    </p>
+                    <ol>
+                        <li>Progettare su carta il markup finale, assegnando ad ogni specifico testo il tag appropriato</li>
+                        <li>Scrivere l'HTML dai tag esterni a quelli interni e dall'alto verso il basso</li>
+                        <li>Applicare gli stili CSS</li>
+                    </ol>
+                    <p>L'applicazione di stili CSS è cresciuta negli anni fino a raggiungere la diffusione pressoché totale.</p>
+                    <div>
+                        <table>
+                            <caption>
+                                Diffusione dei CSS
+                            </caption>
+                            <thead>
+                                <tr>
+                                  <th>Anno</th>
+                                  <th>% di utilizzo</th>
+                                  <th>Supporto browsers</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                  <td>2000</td>
+                                  <td>20&percnt;</td>
+                                  <td>17&percnt;</td>
+                                </tr>
+                                <tr>
+                                  <td>2002</td>
+                                  <td>35&percnt;</td>
+                                  <td>22&percnt;</td>
+                                </tr>
+                                <tr>
+                                  <td>2004</td>
+                                  <td>45&percnt;</td>
+                                  <td>42&percnt;</td>
+                                </tr>
+                                <tr>
+                                  <td>2008</td>
+                                  <td>80&percnt;</td>
+                                  <td>51&percnt;</td>
+                                </tr>
+                                <tr>
+                                  <td>2012</td>
+                                  <td>100&percnt;</td>
+                                  <td>76&percnt;</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>
+                            Un test di validazione potrà essere fatto tramite il <a href="https://jigsaw.w3.org/css-validator/" title="Validatore CSS">tool online</a> dedicato allo scopo. Una volta ottimizzato il tutto, avremo raggiunto il nostro obiettivo ed essere stati dei veri developers come loro:  
+                        </p>
+                        <iframe src="https://www.youtube.com/embed/dvOvHXruEDM" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>                  
+                    <section>
+                            <h2>NOVITA'</h2>
+                            <p>Vuoi rimanere aggiornato su altre novità del blog? Iscriviti alla nostra newsletter:</p>
+                            <form method="post" action="form.php">
+                                <input type="email" name="user_email" id="user_email" placeholder="inserisci l'email" required />
+                                <button type="submit">Iscriviti!</button>
+                            </form>
+                    </section>
+                    <aside>
+                        <h2>ARTICOLI CORRELATI</h2>
+                        <div>
+                            <a href="articolo1.html" title="Passaggi guidati per validare il codice sviluppato">Validare il codice HTML</a>
+                            <p><i class="fas fa-tag"></i> Categoria: develop</p>
+                            <p><i class="fas fa-calendar-alt"></i> Data: 18-9-2020</p>
+                        </div>
+                        <div>
+                            <a href="articolo2.html" title="Passaggi per controllare e correggere tutto il codice sviluppato">Correggere la sintassi</a>
+                            <p><i class="fas fa-tag"></i> Categoria: develop</p>
+                            <p><i class="fas fa-calendar-alt"></i> Data: 16-9-2020</p>
+                        </div>
+                        <div>
+                            <a href="articolo3.html" title="Consigli per ridurre il peso della pagina">Meno Kb nella pagina</a>
+                            <p><i class="fas fa-tag"></i> Categoria: ottimizzazione</p>
+                            <p><i class="fas fa-calendar-alt"></i> Data: 30-9-2020</p>
+                        </div>
+                    </aside>
+                </article>
+            </main>
+            <footer>
+                <p>Blog Epicode ©2021</p>
+                <address>
+                    Testata online di Mario Rossi, registrata con prot. n.213/2018 - via Luigi Einaudi 2 - Milano. P.IVA 00112233. <a href="mailto:info@epicode.school">info@epicode.school</a>
+                </address>
+            </footer>
+        </div>
+    </body>
 </html>
