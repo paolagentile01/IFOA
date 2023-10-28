@@ -1,71 +1,85 @@
 body {
-    text-align: center;
-    color: #333333;
-    font-family: Georgia, serif;
-    margin: 0 auto;
-
+    display: block;
+    margin: 0;   
+    padding: 0;
+    font-family: Georgia;
 }
 
-.articolo{
-    margin: 0 auto;
-    width: 50%;
-    text-align: left;
-  }
-
+#contenitore {
+    text-align: center;
+}
 #logo {
     width: 200px;
-    margin: 1rem 0;
-  }
-#intestazionelogo {
+    margin-top: 1rem;
+}
+
+#testologo > p {
+    background-color:#FEFBF1;
+    border-top: 1px solid #FFD977;
+    padding: 1rem;
     font-size: 0.8rem;
-    margin-bottom: 4rem;
-    background-color: #fdfbf1;
-    color: #004D4C;
-    border-top: solid 1px;
-    border-color: rgb(255, 212, 104);
-    padding: 1.5px;
 }
 
-h1{
+h1 {
     text-align: center;
-    margin-bottom:25px;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
+h2 {
+    border-bottom: 1px solid #C5F3F3;
+    padding-bottom: 1.2rem;
+    font-weight: 100;
 }
 
-.articolo img{
-    width: 100%;
-    border-radius: 15px;
-    box-shadow: 10px 10px 12px #E0E4E7;    
-}
-figcaption {
-    text-align: center;
-    margin-top: 10pt;
-    color:#979797;
-}
-#featured {
-    border-left:1.5px solid rgb(255, 212, 104);
-    color: #B5450E;
-    padding-left: 15px;
-    font-weight: lighter;
-}
-
-a {
-    color:#0E7676;
-}
-h2 { 
-    border-bottom:1px solid #BDF2F0;
-    padding-bottom: 20px;
-    font-weight: lighter;
-}
-aside {
-    text-align: left;
+#main {
     margin: 0 auto;
     width: 50%;
+    text-align: left;
 }
 
-ul {
+figcaption {
+    text-align: center;
+    color:#999999;
+    margin-top: 1rem;
     margin-bottom: 2rem;
-  }
-  
-li {
+}
+
+#featured {
+    color:#B5460F;
+}
+
+#linkrecipe {
+    padding-left: 1rem;
+    border-left: 1px solid #FFD977;
+}
+a{
+    color:#117777;
+}
+
+ul li {
+    margin-top: 1rem;
     margin-bottom: 1rem;
-  }
+}
+
+.ingredienti{
+    margin-top: 2rem;
+}
+
+#primasezione {
+    margin-top: 4rem;
+}
+
+#secondasezione {
+    margin-top: 2rem;
+}
+
+#video video{
+    border-radius: 0.8rem;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    width: 100%;
+}
+
+#metodo {
+    margin-top: 2rem;
+}   
+
