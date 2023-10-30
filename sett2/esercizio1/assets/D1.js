@@ -26,7 +26,7 @@ console.log(t);
 console.log(f);
 // Undefined e Null
 let nonDefinito; //Undefined: la variabile non ha valore assegnato o non à definita
-let niente = null; //Null: mancata identificazione
+let niente = null; //Null: mancata identificazione (intezionale) o variabile vuota 
 console.log(nonDefinito);
 console.log(niente);
 
