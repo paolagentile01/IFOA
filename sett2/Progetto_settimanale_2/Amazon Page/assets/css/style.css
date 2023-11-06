@@ -1,0 +1,168 @@
+/* GENERAL */
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background-color: #E9EDEE;
+    font-size: 22px;
+}
+
+h1{
+    padding-top: 86px;
+    font-size: 42px;
+}
+
+h3{
+    color: black;
+    text-align: left;
+    margin-inline-start: 3.5rem;
+}
+  
+main, footer{
+    text-align: center;
+}
+
+.low-nav ul li, h3, .images figure, figcaption{
+    display: inline-block;
+}
+  
+/* HEADER*/
+.up-nav, .footer-logo{
+    background-color: #222F3F;
+}
+
+.up-nav img{
+    margin: 15px 40px;
+    width: 200px;
+}
+
+
+.low-nav, .back-to-top{
+    height: 30px;
+    background-color:#364759;
+}
+
+.low-nav{
+    padding: 12px 0px;
+}
+
+.low-nav ul{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    width: 1000px;
+    margin-left: 40px;
+}
+
+.low-nav ul li{
+    margin-right: 35px;
+}
+
+.low-nav ul li a{
+    text-decoration: none;
+    color:white;
+}
+
+
+/* MAIN*/
+
+main{
+    padding: 40px;
+}
+
+
+
+/* SECTIONS*/
+.orange-section{
+    background-color: #F56600;
+}
+
+.orange-section p{
+    margin: 0;
+    padding: 8px;
+}
+.banner-section{
+    background-image: url(/assets/images/bg-image.png);
+    height: 280px;
+    width: 100%;
+    background-position: top left;
+    background-size: 2000px;
+}
+
+
+
+
+/* IMAGES SECTIONS*/
+.images-section{
+    background-color: #FFFFFF;
+    margin-top: 40px;
+    text-align: left;
+    border: 1px solid rgb(228, 228, 228);
+}
+
+.images{
+    text-align: center;
+}
+.images figure{ 
+    margin: 1.5rem;
+    max-width: 540px;
+    min-width: 300px;
+}
+
+.images img{
+    object-fit: cover;
+    width: 100%;
+    height: 650px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px#c2c2c2;
+}
+
+
+figcaption{
+    color: black;
+    font-weight: bold;
+}
+
+
+span a{
+    text-decoration: none;
+    color:#116973;
+    margin-left: 1rem;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+
+
+.images-section2{
+    margin: 40px 0px;
+}
+
+
+.images-section2 figure{
+    margin: 30px 0px;
+}
+
+
+.images-section2 figure img {
+    width: 100%;
+}
+
+/*FOOTER*/
+
+.back-to-top{
+    padding:10px;
+}
+
+
+.back-to-top a{
+    color: white;
+    font-size: 16px;
+}
+
+
+.footer-logo img{
+    width: 220px;
+    padding: 50px;
+}

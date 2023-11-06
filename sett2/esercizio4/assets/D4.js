@@ -152,7 +152,7 @@ function giveMeRandom(n){
     if (typeof(n) === 'number' ) {
         let casuali = [];
         for (let i = n-1; i >= 0; i--) {
-             casuali[i] = Math.floor(Math.random()*10);
+             casuali[i] = Math.floor(Math.random()*11);
           }
         return casuali.join();
         } 
@@ -161,3 +161,6 @@ function giveMeRandom(n){
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 console.log(giveMeRandom(9));
+
+
+
