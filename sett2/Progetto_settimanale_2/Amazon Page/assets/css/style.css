@@ -64,14 +64,11 @@ main, footer{
     color:white;
 }
 
-
 /* MAIN*/
 
 main{
     padding: 40px;
 }
-
-
 
 /* SECTIONS*/
 .orange-section{
@@ -89,9 +86,6 @@ main{
     background-position: top left;
     background-size: 2000px;
 }
-
-
-
 
 /* IMAGES SECTIONS*/
 .images-section{
