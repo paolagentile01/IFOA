@@ -1,0 +1,68 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
+
+div p{
+   width: 400px;
+   display: inline-block;
+   text-align: left;
+   font-size: 20px;
+
+}
+
+#blocco-inizio{
+    margin: 0 auto;
+    text-align: center;
+    background-color: white;
+    width: 600px;
+    padding: 20px;
+    margin-top: 100px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 15px rgb(255, 255, 255, 0.5);
+ }
+
+ #container-lista div{
+    border: 1px solid;
+    border-radius: 5px;
+    margin: 10px 0px;
+ }
+
+
+ .completato, .cancella, #add-button{
+  padding: 10px;
+    border: 0;
+    margin: 0px 5px;
+    color: white;
+ }
+ #add-button{
+    color: rgb(248, 241, 241);
+    background-color: rgb(95, 95, 95);
+ }
+
+#input-text{
+    width: 500px;
+    height: 25px;
+    padding: 5px;
+    border: 0px;
+    border-bottom: 1px solid;
+}
+
+
+.cancella{
+    background-color: rgb(234, 7, 7);
+   }
+.completato{
+    background-color: rgb(35, 135, 12);
+   }
+    
+
+.cancella:hover{
+    background-color: rgb(253, 112, 112);
+   }
+.completato:hover{
+    background-color: rgb(62, 238, 22);
+   }
+    
