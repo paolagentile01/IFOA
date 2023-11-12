@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tombola</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <h1>Tombola Game</h1>
+    <div id="container">
+  
+    </div>
+    
+    <hr>
+
+    <div id="button-container">
+        <div id="estratto-container"><h2 id="estratto"></h2></div>
+        <button type="button" id="estrai">Estrai un numero</button>
+        <div><button type="button" id="reset">Reset</button></div>       
+    </div>
+    <div><p>Scegli il numero delle tue schede per giocare:</p>
+    <p>Ogni giocatore puo' avere un massimo di 4 schede</p></div>
+    <input type="number" id="scegli" min="1" max="4" required>
+    <button type="submit" id="gioca">Gioca</button>
+
+    <div id="container-schede">
+  
+    </div>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+body{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    padding:10px;
+}
+
+#container{
+    width:100%;
+}
+
+
+#container div, #container-schede div {
+    display:inline-block;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    width: 60px;
+    height: 60px;
+    font-size: 16px;
+    padding:10px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+
+#estrai{
+    border-radius: 5px;
+    background-color: green;
+    color:white;
+    border:none;
+    padding:12px;
+    font-size:18px;
+}
+
+#reset{
+    border-radius: 5px;
+    margin-top: 20px;
+    background-color: red;
+    color:white;
+    border:none;
+    padding:12px;
+    font-size:18px;
+}
+#button-container{
+    text-align: center;
+    margin-top: 200px;
+}
+
+
+#container-schede{
+    width: 50%;
+}
+
+.giocatore{
+    font-weight: 600;
+    font-size: 28px;
+}
+
+.titoloScheda{
+    margin:0;
+    padding: 10px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#gioca{
+    border-radius: 5px;
+    margin-top: 20px;
+    background-color: black;
+    color:white;
+    border:none;
+    padding:8px;
+    font-size:16px;
+}
+
+#scegli{
+    width: 100px;
+    height: 22px;
+    padding:5px;
+}
