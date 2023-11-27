@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+body{
+    box-sizing: border-box;
+    font-family:'Roboto', sans-serif;
+    line-height: 1.2;
+}
+
+/*NAVBAR*/
+#m-svg{
+    position: absolute;
+    top: 60px;
+    right: 0%;
+    width: 550px;
+}
+a {
+    text-decoration: none;
+    color: #191919;
+}
+
+h3, h2{
+    font-weight: 600;
+}
+h2{
+    font-size: 1.2rem;
+}
+.nav-bar-tag{
+    background-color: #FFC017;
+    transition: background-color 300ms linear;
+    border-bottom: 1px solid #191919;;
+    padding: 24px 0px;
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+}
+.nav-bar {
+    margin: auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+}
+.topMenu {
+    background-color: #fafafa !important;
+    transition: background-color 300ms linear;
+}
+
+.topButton {
+    background-color: #1a8917 !important;
+    transition: background-color 300ms linear;
+}
+
+.nav-links{
+    display: flex;
+    gap: 30px;
+}
+
+
+.logo img {
+    width: 160px;
+}
+
+.nav-bar .button-link a{
+    color: white;
+    background-color: #191919;
+    padding: 10px 15px;
+    border-radius: 50px;
+    font-weight: 500;
+}
+
+/*Main Section*/
+.flex-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    font-size: 1.4rem;
+   
+}
+
+.flex-left h1{
+    margin: 0;
+    font-size: 6rem;
+    font-family:'Spectral', serif;
+}
+
+.flex-left a{
+    text-decoration: none;
+    color: white;
+    background-color: #191919;
+    padding: 10px 50px;
+    border-radius: 30px;
+}
+
+.sub-h1{
+    margin: 20px 0px 50px 0px;
+    width: 65%;
+}
+.section-main{
+    background-color: #FFC017;
+    border-bottom: 1px solid #191919;
+}
+
+.flex-all{
+    justify-content: flex-start;
+    padding: 8rem 5rem 6rem 5rem;
+    display: flex;
+    align-items: center;
+}
+
+/*Trends Section*/
+
+.trend-heading{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+.section-trend{
+    padding: 2rem 5rem;
+    border-bottom: 2px solid #EFF0F0;
+}
+.flex-trend{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 30px;
+}
+
+.flex-trend .trend{
+   flex-basis: 33.3%;
+}
+
+.trend{
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+}
+
+.trend .number{
+    font-size: 2rem;
+    font-weight: 600;
+    color: #E6E7E7;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+.description {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.picture-flex{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.picture-flex div{
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+.picture-flex img{
+    border-radius: 10px;
+    width: 20px;
+}
+
+/*ASIDE AND ARTICLES*/
+.section-aside{
+    display: flex;
+    justify-content: center;
+    align-items:start;
+    padding: 5rem 5rem 6rem 5rem;
+}
+aside{
+    flex-basis: 70%;
+}
+.bookmark-flex{
+    display: flex;
+    justify-content: space-between;
+    
+}
+/*FOOTER AND SIDEBAR*/
+footer{
+    flex-basis: 30%;
+    position: sticky;
+    top: 10rem;
+}
+
+footer h3 {
+    font-weight: 600;
+}
+.topic-links{
+    padding: 2rem 0rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-bottom: 2px solid #EFF0F0;
+}
+.topic-links a {
+    text-align: center;
+    border: 2px solid #EFF0F0;
+    padding: 10px;
+}
+.topic-links a:hover{
+    background-color: rgb(239, 239, 239);
+}
+.footer-links{
+    padding: 2rem 0rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-links a{
+    flex-basis: 10%;
+}
+.article{
+    display: flex;
+    align-items: center;
+    margin: 0px 100px 50px 0px;
+    gap: 100px;
+}
+.article > img{
+    flex-basis: 30%;
+    width: 250px;
+    max-width: 300px;
+}
+
+.article div{
+    object-fit: contain;
+    overflow: hidden;
+    flex-basis: 70%;
+}
+
+.article-flex > {
+    display: flex;
+    flex-direction: column;
+}
+
+.last-line a {
+    background-color: #F2F2F2;
+    border-radius: 100px;
+    padding: 6px;
+    margin: 0px 4px;
+}
+
+.last-line {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.title {
+ font-weight: 600;
+ font-size: 1.2rem;
+}
