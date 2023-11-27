@@ -178,11 +178,6 @@ h2{
 aside{
     flex-basis: 70%;
 }
-.bookmark-flex{
-    display: flex;
-    justify-content: space-between;
-    
-}
 /*FOOTER AND SIDEBAR*/
 footer{
     flex-basis: 30%;
@@ -229,17 +224,20 @@ footer h3 {
     width: 250px;
     max-width: 300px;
 }
-
+.description{
+    position: relative;
+}
+.absolute {
+    position: absolute;
+    right: 0%;
+    bottom: 0;
+}
 .article div{
     object-fit: contain;
     overflow: hidden;
     flex-basis: 70%;
 }
 
-.article-flex > {
-    display: flex;
-    flex-direction: column;
-}
 
 .last-line a {
     background-color: #F2F2F2;
