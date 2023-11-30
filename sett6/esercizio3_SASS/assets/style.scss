@@ -1,0 +1,9 @@
+@import 'reset';
+@import 'font';
+@import 'colori';
+$bg-color: #777;
+
+body{
+    background-color: $bg-color;
+}
+

@@ -1,0 +1,21 @@
+body{
+    color: #f4f4f4;
+}
+$name: primary, secondary, tertiary;
+
+$colori:(
+    primary:#0e6cff,
+    secondary:#ff8700,
+    tertiary:#4caf50
+);
+
+
+@each $key, $value in $colori {
+    .btn-#{$key} {
+        background-color: $value;
+    }
+    
+}
+.bg-hero{
+    background-color: #640fc5;
+}

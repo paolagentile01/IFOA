@@ -1,0 +1,29 @@
+
+body{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+ul{
+    list-style: none;
+    display:flex;
+    column-gap: 10px;
+}
+
+nav{
+    @extend ul;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+@mixin grid($numb-column){
+    display: grid;
+    grid-column: $numb-column;
+}
+    
+.line-4{
+    @include grid(2);
+}
+    
