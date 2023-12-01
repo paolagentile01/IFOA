@@ -7,8 +7,7 @@ body {
 ul, nav {
   list-style: none;
   display: flex;
-  -moz-column-gap: 10px;
-       column-gap: 10px;
+  column-gap: 10px;
 }
 
 nav {
