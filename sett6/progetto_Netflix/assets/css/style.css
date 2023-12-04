@@ -34,7 +34,7 @@
 }
 
 .film-preview img:hover{
-  transition: 0.3s;
+  transition: 0.5s;
   transform: scale(1.028);
   cursor: pointer;
 }
@@ -51,5 +51,26 @@ input[type="checkbox"] {
   height: 30px;
 }
 
+/*accounts*/
+.manage-accounts .profile-icon:hover{
+  transition: 0.3s;
+  transform: scale(1.020);
+  cursor: pointer;
+}
 
+.profile-icon img{    
+  overflow: hidden; 
+}    
+
+.profile-name {    
+  opacity: 0.5;   
+}    
+.accounts div:hover .profile-icon {    
+  border: 4px solid white;
+  cursor: pointer;
+}    
+.accounts div:hover .profile-name {    
+  opacity: 1;
+
+}
 
