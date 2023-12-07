@@ -31,8 +31,8 @@ function showCards(array){
       <h5 class="card-title"> ${book.title}</h5>
       <p class="card-text">Category: ${book.category}</p>
       <p class="card-text">Price: $${book.price}</p>
-      <a href="#" class="btn btn-primary" onclick ="addCard(event,'${book.asin}')">ADD</a>
-      <a href="#" class="btn btn-danger" onclick ="removeCard(event)">REMOVE</a>
+      <a class="btn btn-primary" onclick ="addCard(event,'${book.asin}')">ADD</a>
+      <a class="btn btn-danger" onclick ="removeCard(event)">REMOVE</a>
     </div>
   </div>
   </div>
@@ -55,5 +55,5 @@ const addCard = (event, asin) => {
 }
 
 const loadCart = () => {
-  sh
+  
 }
