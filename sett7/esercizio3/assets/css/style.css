@@ -1,0 +1,7 @@
+.selected{
+    border: 3px solid red;
+}
+
+.cart{
+    z-index: 6;
+}

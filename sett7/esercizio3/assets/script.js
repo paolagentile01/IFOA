@@ -8,19 +8,21 @@
 </div> */
 
 let books = [];
-let shoppingCartList = JSON.parse(localStorage.getItem("shoppingCart"))
+let shoppingCartList = [];
 
 fetch('https://striveschool-api.herokuapp.com/books')
 .then(response => response.json())  // converti a json
-.then(json => { 
-  books = json;
-  console.log(json);
-  showCards(json);
+.then(data => { 
+  console.log(data);
+  books = data;
+  showCards(data);
 }) 
 .catch(err => console.log('Request Failed', err)); 
 
 
 let container = document.getElementById("container");
+let cart = document.getElementById("cart");
+
 function showCards(array){
    array.forEach(book => {
     container.innerHTML += `
@@ -45,15 +47,32 @@ const removeCard = (event) => {
   event.target.closest('.col').remove();
 }
 
-const addCard = (event, asin) => {
-  const book = books.find((book) => book.asin === asin);
-  shoppingCartList.push(book);
-  localStorage.setItem("shoppingCart", JSON.stringify(shoppingCartList))
-
-  loadCart();
-  event.target.closest(".card").classList.add("selected");
+const removeCart = (event) => {
+  event.target.closest('.c-book').remove();
 }
+const addCard = (event, asin) => {
+  event.target.closest(".card").classList.add("selected");
+  const book = books.find((book) => book.asin === asin);
+  console.log(book);
+  shoppingCartList.push(book);
+  loadCart(book);
 
-const loadCart = () => {
+  localStorage.setItem("shoppingCart", JSON.stringify(shoppingCartList))
   
 }
+
+
+function loadCart(book) {
+  cart.innerHTML += `
+  <div class="c-book d-flex bg-success">
+  <img src="${book.img}" style=" width: 6rem;">
+  <div>
+    <h5 > ${book.title}</h5>
+    <p class="text">Category: ${book.category}</p>
+    <p>Price: $${book.price}</p>
+    <a class="btn btn-danger" onclick ="removeCart(event)">REMOVE</a>
+  </div>
+</div>
+`
+}
+
