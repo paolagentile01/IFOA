@@ -55,8 +55,6 @@ const addCard = (event, asin) => {
   const book = books.find((book) => book.asin === asin);
   console.log(book);
   shoppingCartList.push(book);
-  loadCart(book);
-
   localStorage.setItem("shoppingCart", JSON.stringify(shoppingCartList))
   
 }
