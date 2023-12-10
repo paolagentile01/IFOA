@@ -77,8 +77,7 @@ function loadProducts(){
   removeLocal();
 }
 
-function deleteProduct(event, nameProduct){
-  event.target.closest('.row').remove();
+function deleteProduct(nameProduct){
   fetch(`https://striveschool-api.herokuapp.com/api/product/${nameProduct}`, {
     method: 'DELETE',
     headers: {
@@ -122,7 +121,7 @@ function showButtons(event,productId){
   event.target.closest('.col').innerHTML =`
   <div class="col" id="previous-btns">
   <button type="button" class="btn btn-warning" onclick="modifyProductForm(event, '${productId}')">MODIFY</button>
-  <button type="button" class="btn btn-danger" onclick="deleteProduct(event,'${productId}')">DELETE</button>
+  <button type="button" class="btn btn-danger" onclick="deleteProduct('${productId}')">DELETE</button>
   </div>
   `;
 }
