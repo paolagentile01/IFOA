@@ -39,12 +39,10 @@ function loadHomePage(){
     </div>
       `
   });
-  removeLocal();
+
 }
 
-function removeLocal(){
-  localStorage.removeItem("id");
-}
+
   
 
 function show(productId){

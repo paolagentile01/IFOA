@@ -97,17 +97,21 @@ function deleteProduct(event, nameProduct){
 }
 
 function modifyProductForm(event, nameProduct){
-  event.target.closest('.col').innerHTML =`
-  <form class="row">
-  <div class="col"><input type="url"  placeholder="Immagine Url" id="img2" required></div>
-  <div class="col"><input type="text" placeholder="Nome prodotto" id="nome-prodotto2" required></div>
-  <div class="col"><input type="text" placeholder="Descrizione prodotto" id="descrizione2" required></div>
-  <div class="col"><input type="text" placeholder="Brand" id="brand2" required></div>
-  <div class="col"><input type="text" placeholder="Prezzo" id="prezzo2" required></div>
-  <div class="col"><button type="button" class="btn btn-success" onclick="modifyProduct('${nameProduct}');">Modify</button></div>
-  <div class="col"><button type="button" class="btn btn-secondary" onclick="loadProducts();">Cancel</button></div>
+  event.target.closest('.row').innerHTML +=`
+  <form class="row ">
+    <div class="col"><input type="url"  placeholder="Immagine Url" id="img2" required></div>
+    <div class="col"><input type="text" placeholder="Nome prodotto" id="nome-prodotto2" required></div>
+    <div class="col"><input type="text" placeholder="Descrizione prodotto" id="descrizione2" required></div>
+    <div class="col"><input type="text" placeholder="Brand" id="brand2" required></div>
+    <div class="col"><input type="text" placeholder="Prezzo" id="prezzo2" required></div>
+    <div class="col">
+      <button type="button" class="btn btn-success" onclick="modifyProduct('${nameProduct}');">Modify</button>
+      <button type="button" class="btn btn-secondary" onclick="loadProducts();">Cancel</button>
+    </div>
   </form>
   `;
+  let previousButtons = document.getElementById("previous-btns");
+  previousButtons.remove();
 }
 
 function showButtons(event,productId){
@@ -116,8 +120,10 @@ function showButtons(event,productId){
   element.setAttribute('disabled', true);
  });
   event.target.closest('.col').innerHTML =`
-  <div class="col"><button type="button" class="btn btn-warning" onclick="modifyProductForm(event, '${productId}')">MODIFY</button>
-  <button type="button" class="btn btn-danger" onclick="deleteProduct(event,'${productId}')">DELETE</button></div>
+  <div class="col" id="previous-btns">
+  <button type="button" class="btn btn-warning" onclick="modifyProductForm(event, '${productId}')">MODIFY</button>
+  <button type="button" class="btn btn-danger" onclick="deleteProduct(event,'${productId}')">DELETE</button>
+  </div>
   `;
 }
 function modifyProduct(nameProduct){
