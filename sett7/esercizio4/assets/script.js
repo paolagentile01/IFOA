@@ -70,7 +70,7 @@ function loadProducts(){
     <div class="col"><p>${product.brand}</p></div>
     <div class="col"><p>${product.price} $</p></div>
     <div class="col"><button type="button" class="btn btn-warning" onclick="modifyProductForm(event, '${product._id}')">MODIFY</button></div>
-    <div class="col"><button type="button" class="btn btn-danger" onclick="deleteProduct('${product._id}')">DELETE</button></div>
+    <div class="col"><button type="button" class="btn btn-danger" onclick="deleteProduct(event,'${product._id}')">DELETE</button></div>
      </div>
     `
   });
@@ -78,8 +78,8 @@ function loadProducts(){
   removeLocal();
 }
 
-function deleteProduct(nameProduct){
-  console.log(nameProduct);
+function deleteProduct(event, nameProduct){
+  event.target.closest('.row').remove();
   fetch(`https://striveschool-api.herokuapp.com/api/product/${nameProduct}`, {
     method: 'DELETE',
     headers: {
@@ -148,7 +148,7 @@ function modifyProduct(nameProduct){
 
 
 function goBack(event){
-  event.target.closest('.row').innerHTML ="";
+  event.target.closest('.row').remove();
 }
 
 function removeLocal(){
