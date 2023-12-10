@@ -69,8 +69,7 @@ function loadProducts(){
     <div class="col"><p>${product.description}</p></div>
     <div class="col"><p>${product.brand}</p></div>
     <div class="col"><p>${product.price} $</p></div>
-    <div class="col"><button type="button" class="btn btn-warning" onclick="modifyProductForm(event, '${product._id}')">MODIFY</button></div>
-    <div class="col"><button type="button" class="btn btn-danger" onclick="deleteProduct(event,'${product._id}')">DELETE</button></div>
+    <div class="col"><button type="button" class="btn btn-warning modify-product" onclick="showButtons(event, '${product._id}')">MODIFY PRODUCT</button></div>
      </div>
     `
   });
@@ -98,7 +97,7 @@ function deleteProduct(event, nameProduct){
 }
 
 function modifyProductForm(event, nameProduct){
-  event.target.closest('.row').innerHTML +=`
+  event.target.closest('.col').innerHTML =`
   <form class="row">
   <div class="col"><input type="url"  placeholder="Immagine Url" id="img2" required></div>
   <div class="col"><input type="text" placeholder="Nome prodotto" id="nome-prodotto2" required></div>
@@ -106,11 +105,21 @@ function modifyProductForm(event, nameProduct){
   <div class="col"><input type="text" placeholder="Brand" id="brand2" required></div>
   <div class="col"><input type="text" placeholder="Prezzo" id="prezzo2" required></div>
   <div class="col"><button type="button" class="btn btn-success" onclick="modifyProduct('${nameProduct}');">Modify</button></div>
-  <div class="col"><button type="button" class="btn btn-secondary" onclick="goBack(event);">Cancel</button></div>
+  <div class="col"><button type="button" class="btn btn-secondary" onclick="loadProducts();">Cancel</button></div>
   </form>
   `;
 }
 
+function showButtons(event,productId){
+ modifyBtns = document.querySelectorAll(".modify-product");
+ modifyBtns.forEach(element => {
+  element.setAttribute('disabled', true);
+ });
+  event.target.closest('.col').innerHTML =`
+  <div class="col"><button type="button" class="btn btn-warning" onclick="modifyProductForm(event, '${productId}')">MODIFY</button>
+  <button type="button" class="btn btn-danger" onclick="deleteProduct(event,'${productId}')">DELETE</button></div>
+  `;
+}
 function modifyProduct(nameProduct){
   let nome = document.getElementById("nome-prodotto2");
   let descrizione = document.getElementById("descrizione2");
@@ -153,4 +162,9 @@ function goBack(event){
 
 function removeLocal(){
   localStorage.removeItem("id");
+}
+
+
+function resetForm(){
+  document.getElementById("user-form").reset();
 }

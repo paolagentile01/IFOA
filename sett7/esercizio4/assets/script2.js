@@ -33,6 +33,7 @@ function loadHomePage(){
           <h5 class="card-title">${product.name}</h5>
           <p class="card-text">${product.price}</p>
           <a href="product.html" class="btn btn-info" onclick="show('${product._id}')">Scopri di più</a>
+          <a class="btn btn-warning" onclick=" modifyForm(event, '${product._id}')">Modifica</a>
         </div>
       </div>
     </div>
@@ -54,7 +55,8 @@ function show(productId){
 
 
 
-    
-
+function goBack(event){
+  event.target.closest('.row').remove();
+}
 
 
