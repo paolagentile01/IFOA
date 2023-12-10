@@ -17,7 +17,6 @@ let shoppingCartList = JSON.parse(localStorage.getItem("shoppingCart")) || [];
 fetch('https://striveschool-api.herokuapp.com/books')
 .then(response => response.json())  // converti a json
 .then(data => { 
-  console.log(data);
   books = data;
   showCards(data);
 }) 
@@ -99,3 +98,11 @@ function loadCart() {
   });
 }
 
+
+
+const submitC = () => {
+  let input = document.getElementById("input").value;
+  let arrayBooks = books.map((book) =>{return book.title === input});
+  console.log(arrayBooks);
+
+}
