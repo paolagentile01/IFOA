@@ -40,14 +40,10 @@ const deleteRecord = (id) =>{
         }
     })
     .then(() => {
-        productsArray.splice(products.findIndex(element => element._id === id),1)
-        createTable(data);
-    })  // converti a json
-    .then(data => { 
-    productsArray = data;
-    console.log(data);
-    createTable(data);
-    })  
+       arrayProducts.splice(arrayProducts.findIndex(element => element._id === id), 1)
+        createTable(arrayProducts)
+    })
+    .catch(err => console.log('Request Failed', err)); 
 }
 
 

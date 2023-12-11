@@ -39,7 +39,7 @@ function populatePage(photos){
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="goToDetails(${photo.id})">
                       VIEW
                     </button>
                     <button type="button" class="btn btn-sm btn-outline-secondary" onclick="hide(event)">
@@ -82,3 +82,7 @@ function search() {
             })
         .catch(err => console.log('Request Failed', err)); 
 }
+
+const goToDetails = id => {
+  window.location.assign("./details.html?picId=" + id);
+};
