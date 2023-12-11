@@ -47,7 +47,7 @@ fetch('https://striveschool-api.herokuapp.com/api/product/', {
     "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc0NzJkMTJjNmEwZDAwMTg0OTVlZTUiLCJpYXQiOjE3MDIxMzE1NDQsImV4cCI6MTcwMzM0MTE0NH0.P9yRahjplDlVyi5xa992230HL0nVFVDDet_E7SCLGbI"
     }
 })
-.then(response => response.json())  // converti a json
+.then(response => response.json())  
 .then(data => { 
   console.log(data);
   arrayProducts = data;
@@ -121,7 +121,7 @@ function showButtons(event,productId){
   event.target.closest('.col').innerHTML =`
   <div class="col" id="previous-btns">
   <button type="button" class="btn btn-warning" onclick="modifyProductForm(event, '${productId}')">MODIFY</button>
-  <button type="button" class="btn btn-danger" onclick="deleteProduct('${productId}')">DELETE</button>
+  <button type="button" class="btn btn-danger " onclick="deleteProduct('${productId}')">DELETE</button>
   </div>
   `;
 }
