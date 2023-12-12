@@ -28,7 +28,7 @@ window.onload = async () => {
    </div>
    <div class="row mb-5">              
             <div class="col ">
-                <img src="${product.imageUrl}" class="shadow-lg" alt="${product.name}" width="100%" height="100%">
+                <img src="${product.imageUrl}" class="shadow-lg" alt="${product.name}" width="100%">
             </div>
                 <div class="col">
                 <span class="badge badge-pill badge-dark mb-5" style="font-size: 20px;">${product.price} $</span>

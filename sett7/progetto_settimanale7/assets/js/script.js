@@ -60,7 +60,7 @@ function createTable(data) {
           <td>${product.price} $</td>
           <td>${product.imageUrl}</td>
           <td>
-          <button type="button" class="btn btn-warning modify-product" onclick=" handleData('modify', '${product._id}','${product.name}','${product.brand}','${product.description}','${product.price}','${product.imageUrl}')">EDIT</button>
+          <button type="button" class="btn btn-warning" onclick="handleData('modify', '${product._id}','${product.name}','${product.brand}','${product.description}','${product.price}','${product.imageUrl}')">EDIT</button>
           </td>
 
           <td>
@@ -90,8 +90,7 @@ function sendData(){
         })
         .then(response => response.json())  // converti a json
         .then(data => {
-            productsArray.push(data);
-            createTable(productsArray);
+            loadData();
 
         }).catch(err => console.log('Request Failed', err));
 
@@ -113,15 +112,14 @@ const deleteRecord = (id) => {
         })
         .then(() => {
             productsArray.splice(productsArray.findIndex(element => element._id === id), 1)
-            console.log(productsArray)
-            loadData();
+            window.location.href ="./index.html"
          })
          .catch(err => console.log('Request Failed', err)); 
     }
 }
 
 function modifyData(id){
-
+    if(checkValidity()){
     const newRecord = {
         "name": document.getElementById('inputName').value,
         "brand": document.getElementById('inputBrand').value,
@@ -141,16 +139,15 @@ function modifyData(id){
         .then(response => response.json())  // converti a json
         .then(data => {
             productsArray.splice(productsArray.findIndex(element => element._id === id), 1, data)
-            loadData();
-
-        }).catch(err => console.log('Request Failed', err)); 
+            window.location.href ="./index.html"
+        }).catch(err => console.log('Request Failed', err));
+    }else{
+        return alert("Ops... you need valid data")
+    }
 }
 
 
 function handleData(action, id, name, brand, description, price, url){
-    if(action === "restore"){
-        createTable(productsArray);
-    }else{
         if(action === "modify"){
             document.getElementById('inputName').value = name;
             document.getElementById('inputBrand').value = brand;
@@ -176,21 +173,7 @@ function handleData(action, id, name, brand, description, price, url){
             <button type="button" class="btn btn-warning" onclick="resetForm()">RESET</button>
             <a onclick="sendData()"  class="btn btn-success">ADD</a>`;
         }     
-    }
   
-}
-
-function showButtons(event, id){
-    console.log(productsArray);
-    let modifyBtns = document.querySelectorAll(".modify-product");
-    modifyBtns.forEach(element => {
-     element.setAttribute('disabled', true);
-    });
-     event.target.closest('td').innerHTML =`
-     <button class="btn btn-danger" type="button" onclick="deleteRecord('${id}')">DELETE</button>
-     <button class="btn btn-warning" type="button" data-bs-toggle="modal" data-bs-target="#formModal" onclick= "handleData('modify','${id}')">MODIFY</button>
-     <button class="btn btn-secondary" type="button" onclick="handleData('cancel')">CANCEL</button>
-     `;
 }
 
 function resetForm(){
