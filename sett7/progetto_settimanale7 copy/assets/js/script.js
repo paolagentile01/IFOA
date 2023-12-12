@@ -2,32 +2,6 @@ const url = "https://striveschool-api.herokuapp.com/api/product/";
 const token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc0NzJkMTJjNmEwZDAwMTg0OTVlZTUiLCJpYXQiOjE3MDIxNDU4MTQsImV4cCI6MTcwMzM1NTQxNH0.PC21xLx4Hc2xmQeza49ACAdFgX1ADVlU3EfxOq52mJM";
 let productsArray = [];
 
-const searchParams = new URLSearchParams(window.location.search)
-console.log(URLSearchParams);
-let id = searchParams.get("Id")
-
-window.onload = () =>{
-    if(id){
-        getId();
-    }
-    else{
-        loadData();
-    }
-}
-
-
-async function getId() {
-    const response = await fetch(url + id, {
-        headers: {
-            "Authorization": token,
-            "Accept": "application/json"
-        }
-    })
-    let product = await response.json()
-    handleData('modify',id, product.name, product.brand, product.description, product.price, product.imageUrl)
-}
-
-
 function loadData(){
     fetch(url, {
     headers: {
@@ -45,8 +19,6 @@ function loadData(){
 }
 
 function createTable(data) {
-    document.getElementById("add-prod-section").classList.add("d-none");
-    document.getElementById("table-section").classList.remove("d-none");
     const table = document.querySelector('tbody');
     table.innerHTML = '';
 
@@ -55,12 +27,12 @@ function createTable(data) {
         <tr>
           <th scope="row">${product._id}</th>
           <td>${product.name}</td>
-          <td>${product.description.substring(0,200)}...</td>
+          <td>${product.description}</td>
           <td>${product.brand}</td>
           <td>${product.price} $</td>
           <td>${product.imageUrl}</td>
           <td>
-          <button type="button" class="btn btn-warning modify-product" onclick=" handleData('modify', '${product._id}','${product.name}','${product.brand}','${product.description}','${product.price}','${product.imageUrl}')">EDIT</button>
+          <button type="button" class="btn btn-warning modify-product" onclick="showButtons(event, '${product._id}')">MODIFY PRODUCT</button>
           </td>
 
           <td>
@@ -71,7 +43,6 @@ function createTable(data) {
 }
 
 function sendData(){
-    if(checkValidity()){
     const newRecord = {
         "name": document.getElementById('inputName').value,
         "brand": document.getElementById('inputBrand').value,
@@ -93,11 +64,7 @@ function sendData(){
             productsArray.push(data);
             createTable(productsArray);
 
-        }).catch(err => console.log('Request Failed', err));
-
-    } else{
-        return alert("Ops... you need valid data")
-    }
+        }).catch(err => console.log('Request Failed', err)); 
 }
 
 
@@ -113,8 +80,7 @@ const deleteRecord = (id) => {
         })
         .then(() => {
             productsArray.splice(productsArray.findIndex(element => element._id === id), 1)
-            console.log(productsArray)
-            loadData();
+            createTable(productsArray)
          })
          .catch(err => console.log('Request Failed', err)); 
     }
@@ -141,40 +107,25 @@ function modifyData(id){
         .then(response => response.json())  // converti a json
         .then(data => {
             productsArray.splice(productsArray.findIndex(element => element._id === id), 1, data)
-            loadData();
+            createTable(productsArray)
 
         }).catch(err => console.log('Request Failed', err)); 
 }
 
 
-function handleData(action, id, name, brand, description, price, url){
-    if(action === "restore"){
+function handleData(action, id){
+    if(action === "cancel"){
         createTable(productsArray);
     }else{
         if(action === "modify"){
-            document.getElementById('inputName').value = name;
-            document.getElementById('inputBrand').value = brand;
-            document.getElementById('inputDescription').value = description;
-            document.getElementById('inputPrice').value = price;
-            document.getElementById('inputImageUrl').value = url;
-            
-            document.getElementById("table-section").classList.add("d-none");
-            document.getElementById("add-prod-section").classList.remove("d-none");
-            document.getElementById("title").innerText = 'Edit your Product';
-            document.getElementById("form-footer").innerHTML = `
-            <a class="btn btn-danger" onclick="deleteRecord('${id}')">DELETE</a>
-            <a href="./index.html" class="btn btn-secondary">CANCEL</a>
-            <a class="btn btn-primary" onclick="modifyData('${id}')">SAVE CHANGES</a>`
-
-
+            document.getElementById("modal-footer").innerHTML = `
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="modifyData('${id}')"> MODIFY</button>`
         } else{
-            document.getElementById("table-section").classList.add("d-none");
-            document.getElementById("add-prod-section").classList.remove("d-none");
-            document.getElementById("title").innerText = 'Create a New Product';
-            document.getElementById("form-footer").innerHTML = `
-            <a href="./index.html" class="btn btn-secondary">CANCEL</a>
-            <button type="button" class="btn btn-warning" onclick="resetForm()">RESET</button>
-            <a onclick="sendData()"  class="btn btn-success">ADD</a>`;
+            document.getElementById("modal-footer").innerHTML = `
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="sendData()">ADD</button>
+            <button type="button" class="btn btn-warning" onclick="resetForm()">RESET</button>`
         }     
     }
   
@@ -197,19 +148,40 @@ function resetForm(){
     document.getElementById("user-form").reset();
 }
 
-
-
-
-function checkValidity(){
-   let name = document.getElementById('inputName').value;
-   let brand = document.getElementById('inputBrand').value;
-   let description = document.getElementById('inputDescription').value;
-   let price = document.getElementById('inputPrice').value;
-   let img = document.getElementById('inputImageUrl').value;
-
-   if(name === "" ||brand === "" ||description === "" ||price === "" ||img === ""){
-    return false;
-   } else{
-    return true;
-   }
+window.onload = () => {
+    loadData();
 }
+/*
+let card = `<div class="col mb-4">
+<div class="card mb-4 shadow-sm h-100">
+<img src=${image.src.large} class="card-img-top" alt=${image.alt} style="height: 200px; object-fit: cover; cursor: pointer" onclick="goToDetails(${image.id})">
+  <div class="card-body d-flex flex-column">
+    <h5 class="card-title" onclick="goToDetails(${image.id})" style="cursor: pointer">${image.alt}</h5>
+      <p class="card-text mt-auto">
+        <a href=${image.photographer_url} target="_blank">
+            ${image.photographer}
+        </a>
+      </p>
+      <div
+        class="d-flex justify-content-between align-items-center"
+      >
+        <div class="btn-group">
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-secondary"
+            onclick="modalLogic(event)"
+          >
+            Scopri di più
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-secondary"
+              onclick="hideMe(event)">
+            Hide
+          </button>
+        </div>
+        <small class="text-muted">9 mins</small>
+    </div>
+  </div>
+</div>
+</div>`;]]*/

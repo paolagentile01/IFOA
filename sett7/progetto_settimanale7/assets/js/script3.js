@@ -19,32 +19,35 @@ window.onload = async () => {
 
    let containerProduct = document.getElementById("product-content");
    containerProduct.innerHTML = `
-   <img src="${product.imageUrl}">
-   <p>${product.name}</p>
-   <p>${product.description}</p>
-   <p>${product.brand}</p>
-   <p>${product.price}</p>
+   <h1 class="display-4">Product Details</h1>
+   <hr>
+   <div class="row"> 
+   <div class="col">
+   <h2>${product.name}</h2>
+   </div>
+   </div>
+   <div class="row mb-5">              
+            <div class="col ">
+                <img src="${product.imageUrl}" class="shadow-lg" alt="${product.name}" width="100%" height="100%">
+            </div>
+                <div class="col">
+                <span class="badge badge-pill badge-dark mb-5" style="font-size: 20px;">${product.price} $</span>
+                <p><b>Name of the product:</b>
+                <br> ${product.name}</p>
+                <p><b>Brand:</b>
+                <br>${product.brand}</p> 
+                <p><b>Description:</b> 
+                <br>${product.description}</p> 
+            </div>      
+   </div>
+   <hr>
+   <div class="row"> 
+   <div class="col">
+        <a href="./home.html" type="button" class="btn btn-info">
+        <i class="bi bi-arrow-return-left"></i> GO BACK 
+        </a>
+   </div>
+   </div>
+  
    `
-    /*img.src = picInfos.src.original
-    img.classList.add("img-fluid", "rounded-lg", "shadow-lg")
-
-    imgContent.appendChild(img)
-
-    const h2 = document.createElement("h2")
-    const photographerLink = document.createElement("a")
-    photographerLink.classList.add("text-dark", "d-inline-block", "mt-4")
-    photographerLink.href = picInfos.photograper_url
-    photographerLink.innerText = picInfos.photographer
-    h2.appendChild(photographerLink)
-    imgContent.appendChild(h2)
-
-    const backLink = document.createElement("a")
-    backLink.href = "./index.html"
-    backLink.innerText = "⬅️ Go back Home"
-    backLink.className = "mb-5"
-    imgContent.appendChild(backLink)
-
-    const body = document.querySelector("body")
-    body.style.cssText = `min-height: 100vh; background-color: ${picInfos.avg_color}`*/
-
 }
