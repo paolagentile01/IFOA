@@ -6,10 +6,10 @@ function NotFound(){
 
 
     return(
-        <Container fluid>
+        <Container fluid className="app p-5">
             <Row>
             <h1 className="mb-5 display-3">Opsss! Error 404!<br/>
-            Page Not Found</h1>
+              Page Not Found</h1>
 
                 
             </Row>

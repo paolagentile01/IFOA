@@ -1,14 +1,22 @@
-body{
-  background: url('https://img.freepik.com/free-vector/gorgeous-clouds-background-with-blue-sky-design_1017-25501.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1705017600&semt=ais');
-  background-repeat: no-repeat;
-  height: 100vh;
-  background-size: cover;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  position: relative;
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
 }
 
 
+body {
+  background: url('https://img.freepik.com/free-vector/gorgeous-clouds-background-with-blue-sky-design_1017-25501.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1705017600&semt=ais');
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
 .app{
   background-color: white;
   position: absolute;
@@ -16,8 +24,8 @@ body{
   top: 50%;
   transform: translate(-50%, -50%);
   height: 400px;
-  width: 600px;
-  padding: 10px;
+  width: 200px;
+  padding: 15px;
 }
 
 .card-container {
@@ -27,3 +35,5 @@ body{
   border: 1px solid #ccc;
   margin: 10px;
 }
+
+

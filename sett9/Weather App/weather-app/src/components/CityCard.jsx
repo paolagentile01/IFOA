@@ -12,7 +12,7 @@ function CityCard({city}){
             { city? (
                 <div className="card h-200 bg-info mt-4 p-5" onClick={(() =>  navigate(`/details/${city.city.name}`))}>
                 <h3>{city.city.name}</h3>
-                <Link className="btn btn-primary btn-sm" to='/details' city={city}>Discover More</Link>
+                <Link className="btn btn-sm btn-primary btn-sm" to='/details' city={city}>Discover More</Link>
                 </div>
                 
                 ): (null)
