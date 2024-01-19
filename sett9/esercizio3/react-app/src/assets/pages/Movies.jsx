@@ -27,14 +27,18 @@ export default MoviesPage; */
 
 import Container from 'react-bootstrap/Container';
 import RenderPage from './RenderPage';
+import MoviesDetails from './MovieDetails';
 
 function MoviesPage() {
   const category = "movie";
+
+  
   return (
     <>
         <Container fluid>
             <h1>Tv Shows Page</h1>
-            <RenderPage category={category}/>
+            {/* <RenderPage category={category}/> */}
+            <MoviesDetails category={category}/>
         </Container>
     </>
   );

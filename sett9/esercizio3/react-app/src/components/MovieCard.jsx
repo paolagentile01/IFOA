@@ -1,4 +1,4 @@
-import { Col, Row } from "react-bootstrap";
+/* import { Col, Row } from "react-bootstrap";
 import {useState, useEffect} from 'react';
 
 
@@ -37,4 +37,8 @@ return (
 
 };
 
-export default MovieCard;
+export default MovieCard; */
+
+
+
+
