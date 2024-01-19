@@ -1,8 +1,29 @@
+body{
+  background: url('https://img.freepik.com/free-vector/gorgeous-clouds-background-with-blue-sky-design_1017-25501.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1705017600&semt=ais');
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-size: cover;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  position: relative;
+}
+
+
 .app{
-  margin:0;
-  padding: 0;
-  box-sizing: border-box;
+  background-color: white;
   position: absolute;
-  top: 10%;
-  left: 20%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 400px;
+  width: 600px;
+  padding: 10px;
+}
+
+.card-container {
+  min-height: 200px;
+  width: auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin: 10px;
 }

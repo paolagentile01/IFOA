@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Row, Col } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
 
 
 function CityCard({city}){
@@ -11,9 +10,9 @@ function CityCard({city}){
         <Row>
             <Col>
             { city? (
-                <div className="card h-200 bg-info mt-4 p-5" onClick={(() => navigate('/'))}>
+                <div className="card h-200 bg-info mt-4 p-5" onClick={(() =>  navigate(`/details/${city.city.name}`))}>
                 <h3>{city.city.name}</h3>
-                <p>{city.city.population}</p>
+                <Link className="btn btn-primary btn-sm" to='/details' city={city}>Discover More</Link>
                 </div>
                 
                 ): (null)
