@@ -1,6 +1,5 @@
-import { useState } from "react";
-import { Row, Col } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Row, Col, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 
 function CityCard({citySearched}){
@@ -9,9 +8,9 @@ function CityCard({citySearched}){
     return(
         <Row>
             <Col>
-                <div className="card h-200 bg-info mt-4 p-5" onClick={(() =>  navigate(`/details/${citySearched.city.name}`))}>
+                <div className="card h-200 bg-info mt-4 p-5" >
                 <h3>{citySearched.city?.name}</h3>
-                <Link className="btn btn-sm btn-primary btn-sm" to='/details' city={citySearched}>Discover More</Link>
+                <Button  onClick={(() =>  navigate(`/details/${citySearched.city.name}`))} className="btn btn-sm btn-primary btn-sm" city={citySearched}>Discover More</Button>
                 </div>
             </Col>
         </Row>

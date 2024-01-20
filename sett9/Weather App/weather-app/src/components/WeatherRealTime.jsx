@@ -1,11 +1,6 @@
 import React from "react";
 import { Card, Container, Row, Col } from "react-bootstrap";
-import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Sunny from '../assets/sunny.png';
-import Snow from '../assets/snow.png';
-import Cloudy from '../assets/cloudy.png';
-import Rain from '../assets/rain.png';
 
 
 
@@ -46,7 +41,7 @@ function WeatherRealTime({ cityName,  getWeatherIcon  }) {
     }
   }
   const fetchData = async () => {
-    const url = `http://api.openweathermap.org//data/2.5/weather?q=${cityName}&limit=2&units=metric&appid=9eca11d3019f2652eec516e76a720461`;
+    const url = `http://api.openweathermap.org//data/2.5/weather?q=${cityName}&limit=2&units=metric&appid=6c6e849d54a8a74f5542dc039fea4bb4`;
 
     try {
       const response = await fetch(url);
