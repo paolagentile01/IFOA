@@ -7,29 +7,19 @@ import Cloudy from '../assets/cloudy.png';
 import Rain from '../assets/rain.png';
 import WeatherRealTime from "../components/WeatherRealTime";
 
-function RenderDetailPage() {
+function RenderDetailPage({FetchData, city}) {
+
   const { cityName } = useParams();
-  console.log(cityName);
-  const [location, setLocation] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
+  const [location, setLocation] = useState(city);
 
   useEffect(() => {
-    fetchData();
+    FetchData(cityName);
   }, []);
 
-  const fetchData = async () => {
-    const url = `http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&limit=2&units=metric&appid=9eca11d3019f2652eec516e76a720461`;
 
-    try {
-      const response = await fetch(url);
-      const jsonData = await response.json();
-      setLocation(jsonData);
-      setIsLoading(false);
-      console.log(jsonData);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  useEffect(() => {
+    setLocation(city);
+  }, [city]);
 
 
 function getWeatherIcon (weather) {
@@ -45,7 +35,6 @@ function getWeatherIcon (weather) {
     }
 
   return (
-    isLoading ? null : (
       <Container className="m-auto text-center">
         <h4 className="display-5">How Is The Weather in  {location.city?.name} ?</h4>
 
@@ -93,7 +82,6 @@ function getWeatherIcon (weather) {
           
         </Row>
       </Container>
-    )
   );
 }
 

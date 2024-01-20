@@ -9,10 +9,10 @@ import { useEffect, useState } from "react";
 function App() {
   const [city, setCity] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  
-  useEffect(() => {
-    FetchData();
-  }, []);
+
+    useEffect(() => {
+      FetchData();
+    }, []);
 
   const FetchData = async (inputUser) =>{
     let defaultCity = 'Milano';
@@ -22,7 +22,6 @@ function App() {
             const response =  await fetch(url)
             const jsonData = await response.json();
             setCity(jsonData);
-            console.log(jsonData);
             setIsLoading(false);
 
         }catch(err){
@@ -39,7 +38,7 @@ function App() {
    
     <Routes>
        <Route path='/' element={<SearchPage FetchData={FetchData} city={city}  />}></Route>
-       <Route path='/details/:cityName' element={<RenderDetailPage />}></Route>
+       <Route path='/details/:cityName' element={<RenderDetailPage FetchData={FetchData} city={city} />}></Route>
        <Route path='*' element={<NotFound />}></Route>
     </Routes>
     </BrowserRouter>

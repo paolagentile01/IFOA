@@ -53,7 +53,6 @@ function WeatherRealTime({ cityName,  getWeatherIcon  }) {
       const jsonData = await response.json();
       setLocation(jsonData);
       setIsLoading(false);
-      console.log(jsonData);
     } catch (err) {
       console.log(err);
     }

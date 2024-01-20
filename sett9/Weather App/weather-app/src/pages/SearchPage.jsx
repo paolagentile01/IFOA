@@ -6,12 +6,12 @@ function RenderSearchPage({FetchData, city}){
 
     const [inputUser,setInputUser] = useState("");
     const [citySearched, setCitySearched] = useState({});
-
     
-  useEffect(() => {
-    setCitySearched(city)
-  }, [city]);     
-    
+      
+    useEffect(() => {
+      setCitySearched(city)
+    }, [city]);     
+      
 
 
     const submitInput = () => {
