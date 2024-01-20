@@ -2,36 +2,21 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import CityCard from "../components/CityCard";
 import { useEffect, useState } from "react";
 
-function RenderSearchPage(){
-  
+function RenderSearchPage({FetchData, city}){
+
     const [inputUser,setInputUser] = useState("");
-    const [city, setCity] = useState(0);
+    const [citySearched, setCitySearched] = useState({});
 
-    useEffect(() => {
-      FetchData();
-    }, []);
     
-
-    const FetchData = async (inputUser) =>{
-        const cityProva = 'Milano';
-        const url =  `http://api.openweathermap.org/data/2.5/forecast?q=${inputUser? inputUser: cityProva}&limit=2&appid=9eca11d3019f2652eec516e76a720461`;
-         
-            try{
-                const response =  await fetch(url)
-                const jsonData = await response.json();
-                setCity(jsonData);
-                console.log(jsonData);
-            }catch(err){
-                console.log(err);
-            }
-    }
-        
+  useEffect(() => {
+    setCitySearched(city)
+  }, [city]);     
     
 
 
     const submitInput = () => {
       setInputUser(inputUser);
-      FetchData(inputUser); 
+      FetchData(inputUser);
     }
   
     return(
@@ -53,7 +38,7 @@ function RenderSearchPage(){
                 SEARCH
               </Button>
             </Col>
-          </Row> {city? (<CityCard city={city}/>):(null)}
+          </Row> {city? (<CityCard citySearched={citySearched}/>):(null)}
      
         </Form>
       </Container>
