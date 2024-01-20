@@ -64,7 +64,7 @@ function WeatherRealTime({ cityName,  getWeatherIcon  }) {
         <Col>
           <p className="fw-bold display-4">{location.name}, <span>{location.sys?.country}</span></p>
             {getWeatherIcon(location.weather[0].description)}
-          <p className="fw-bold display-6">{location.main?.temp}°C</p>
+          <p className="fw-bold display-6">{location.main?.temp.toFixed(0)}°C</p>
           <p className="fs-5">{location.weather ? location.weather[0].description.charAt(0).toUpperCase() + location.weather[0].description.slice(1) : ""}</p>
 
           <h6>Today</h6>
