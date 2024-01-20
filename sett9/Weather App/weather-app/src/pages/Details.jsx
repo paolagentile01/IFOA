@@ -34,9 +34,21 @@ function getWeatherIcon (weather) {
       }
     }
 
+    function FormatData(dt_txt) {
+      const date = new Date(dt_txt);
+      const day = date.getDate();
+      const weekday = date.getDay();
+    
+      const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      const dayOfWeekName = daysOfWeek[weekday];
+    
+      const hour = date.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" });
+    
+      return (<span>{day} {dayOfWeekName} <br /> {hour}</span>);
+    }
   return (
       <Container className="m-auto text-center">
-        <h4 className="display-5">How Is The Weather in  {location.city?.name} ?</h4>
+        <h4 className="display-5">How Is The Weather in  {location.city?.name}?</h4>
 
 
         <WeatherRealTime cityName={cityName} getWeatherIcon={getWeatherIcon}/>
@@ -51,17 +63,18 @@ function getWeatherIcon (weather) {
                   {index === 0 ? (
                     <div className="card bg-info card-container " >
                       <b className="mb-2">SHORTLY</b>
-                      <b></b> {hour.weather[0].description}
+                      <b> {hour.weather[0].description}</b>
                       <div>
                           {getWeatherIcon(hour.weather[0].description)}
                       </div>
-                      <b>Temperature:</b> {hour.main.temp} °C
+                      <b>Temperature:</b> {hour.main.temp.toFixed(0)} °C
                     </div>
                   ) : (
                       <Row>
                           <Col>
                           <div className="card card-container " >
-                              <p>{hour.dt_txt}</p>
+                            
+                              <p>{FormatData(hour.dt_txt)}</p>
                               <p>{hour.weather[0].description}</p>
                               <div>
                               {getWeatherIcon(hour.weather[0].description)}

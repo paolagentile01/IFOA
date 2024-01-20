@@ -36,7 +36,7 @@ function WeatherRealTime({ cityName,  getWeatherIcon  }) {
   
   function checkUnit(key, value) {
     if (key.includes("temp") || key.includes("feels")) {
-      return `${value}°C`;
+      return `${value.toFixed(0)}°C`;
     } else if (key === "humidity") {
       return `${value}%`;
     } else if (key === "pressure") {

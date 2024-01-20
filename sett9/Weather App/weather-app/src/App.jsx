@@ -16,12 +16,13 @@ function App() {
 
   const FetchData = async (inputUser) =>{
     let defaultCity = 'Milano';
-    const url =  `http://api.openweathermap.org/data/2.5/forecast?q=${inputUser? inputUser: defaultCity}&limit=2&appid=9eca11d3019f2652eec516e76a720461`;
+    const url =  `http://api.openweathermap.org/data/2.5/forecast?q=${inputUser? inputUser: defaultCity}&limit=2&units=metric&appid=9eca11d3019f2652eec516e76a720461`;
      
         try{
             const response =  await fetch(url)
             const jsonData = await response.json();
             setCity(jsonData);
+            console.log(jsonData);
             setIsLoading(false);
 
         }catch(err){
