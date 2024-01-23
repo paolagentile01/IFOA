@@ -1,31 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
 html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  height: 110vh;
+  font-family: 'Inter' !important;
 }
 
 
 body {
-  background: url('https://img.freepik.com/free-vector/gorgeous-clouds-background-with-blue-sky-design_1017-25501.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1705017600&semt=ais');
   height: 100%; 
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  color: rgb(255, 255, 255)!important;
+  background:#292D50  !important;
+  backdrop-filter: blur(5px)!important;
+  -webkit-backdrop-filter: blur(5px)!important;
 }
+
 .app{
-  background-color: white;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  height: 400px;
-  width: 200px;
-  padding: 15px;
+  padding: 30px;
+}
+.app input, .app input[type="text"]:focus{
+  background-color: #18162d;
+  border:none;
+  color: white ;
+}
+
+.app input::placeholder{
+ color: rgba(255, 255, 255, 0.527);
 }
 
 .card-container {
@@ -36,4 +37,77 @@ body {
   margin: 10px;
 }
 
+.card-search-section{
+  background: linear-gradient(to right, #5433b1, #372A86)!important;
+  height: 210px !important;
+  position: relative;
+}
 
+.search-btn{
+  position: absolute;
+  right:0%;
+  top: 0%;
+  padding: 5px 16px !important;
+  margin-bottom: 50px !important;
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+.form{
+  position:relative;
+}
+
+.card-transparent{
+  width: 210px;
+  height: 210px !important;
+  border: 2px solid #ffffff1a !important;
+  margin: 0 auto ;
+  cursor: pointer;
+  background:inherit!important;
+}
+
+.card-transparent:hover{
+  background-color: #59488f !important;
+}
+
+.bg-glassy::before{
+  background:inherit!important;
+}
+.bg-glassy{
+  background:rgba(255, 255, 255, 0.068) !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.183);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+/* .change-background{
+  background: url('./assets/stars.gif')  !important;
+  background-repeat: no-repeat;
+  width: 100% !important;
+}
+ */
+.change-background{
+  background: url('https://i.pinimg.com/564x/56/77/30/567730c4a829f90603a416f6107b3bf8.jpg')  !important;
+  background-repeat: no-repeat;
+  width: 100% !important;
+  background-size: cover !important;
+}
+
+
+ input[type="range"] {
+  -webkit-appearance: none;
+  height: 8px;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right,#1e72bc, #2cc5c5,#aec52c, #c5432c );
+  opacity: 0.8;
+  border-radius: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.473);
+  border: 1px solid black;
+  border-radius: 50%;
+} 
