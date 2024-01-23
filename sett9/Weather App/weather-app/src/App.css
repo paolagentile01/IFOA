@@ -59,7 +59,6 @@ body {
 .card-transparent{
   width: 210px;
   height: 210px !important;
-  border: 2px solid #ffffff1a !important;
   margin: 0 auto ;
   cursor: pointer;
   background:inherit!important;
@@ -97,17 +96,33 @@ body {
   height: 8px;
   margin: 0;
   padding: 0;
-  background: linear-gradient(to right,#1e72bc, #2cc5c5,#aec52c, #c5432c );
-  opacity: 0.8;
   border-radius: 5px;
 }
 
-input[type="range"]::-webkit-slider-thumb {
+.temperature-range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 6px;
   height: 6px;
-  background: rgba(255, 255, 255, 0.473);
-  border: 1px solid black;
+  background: white;
   border-radius: 50%;
 } 
+
+.air-range{
+  background: linear-gradient(to right,#1ebc38, #c5c02c,#c5922c, #c5432c )!important;
+}
+
+.air-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 3px solid rgb(255, 255, 255);
+  border-radius: 50%;
+  width: 14px !important;
+  height: 14px !important;
+}
+.temperature-range{
+  background: linear-gradient(to right,#1e72bc, #2cc5c5,#aec52c, #c5432c );
+  opacity: 0.8;
+}
+

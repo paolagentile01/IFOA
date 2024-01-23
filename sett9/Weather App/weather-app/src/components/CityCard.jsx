@@ -6,7 +6,11 @@ import { getWeatherIcon } from "./getWeatherIcons";
 function CityCard(){
     const fetch = useSelector((state) => state.fetch);
     console.log(fetch);
+/*     if (fetch[length]?.city.message === "city not found") {
+      return <p>No results found.</p>;
+    } */
     const navigate = useNavigate();
+
     return (
       <>
         {fetch.map((city, index) => {

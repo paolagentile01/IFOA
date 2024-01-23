@@ -1,8 +1,9 @@
 import { Row, Col } from "react-bootstrap";
 import { getWeatherIcon } from "./getWeatherIcons";
+import AirQuality from "./AirQuality";
 
 function RenderDetailPage({city}) {
-  console.log(city);
+
 
     function FormatData(dt_txt, action) {
       const date = new Date(dt_txt);
@@ -92,6 +93,7 @@ function RenderDetailPage({city}) {
                       type="range"
                       name="range"
                       className="temperature-range mx-3"
+                      disabled
                       style={{ width: "100px" }} />
                      <span  style={{ fontSize: '16px' }}>{hour.main.temp_max.toFixed(0)} °</span>               
                   </Col>
@@ -115,6 +117,7 @@ function RenderDetailPage({city}) {
                       type="range"
                       name="range"
                       className="temperature-range mx-3"
+                      disabled
                       style={{ width: "100px" }}
                     />
                      <span  style={{ fontSize: '16px' }}>{hour.main.temp_max.toFixed(0)} °</span>               
@@ -129,7 +132,8 @@ function RenderDetailPage({city}) {
         </Col>
       </Row>
       <Row className="g-0 bg-glassy p-3 rounded-4 mb-3">
-      <h6 className="text-light border-bottom pb-2"  style={{ fontSize: '13px' }}>AIR QUALITY</h6>
+      <h6 className="text-light border-bottom pb-2 opacity-50"  style={{ fontSize: '13px' }}>AIR QUALITY</h6>
+      <AirQuality/>
       </Row>
       </>
   );

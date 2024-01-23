@@ -10,16 +10,14 @@ function WeatherRealTime() {
   const {cityName} = useParams();
   const location = useSelector((state)=> state.fetch);
   let city = location.find((obj) => obj.city.city.name === cityName);
-  console.log(city);
-
+/*   console.log(city.city.city.coord);
+ */
 
   const dispatch = useDispatch();
 
   useEffect(() => {
    dispatch(fetchClimeDetails(city.city.city.coord.lat, city.city.city.coord.lon ));
   }, []);
-
-  const locationData = useSelector((state)=> state.fetchDetails);
 
   function ObjectCards({data}) {
     return (

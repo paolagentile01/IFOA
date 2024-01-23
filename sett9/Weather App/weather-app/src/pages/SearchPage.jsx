@@ -24,7 +24,7 @@ function RenderSearchPage(){
       if (check){
         setInputUser(inputUser);
         dispatch(fetchDataSearch(inputUser));
-        return;
+        return setInputUser("");
       } else{
         return alert("Please enter a valid location.");
       }
@@ -48,6 +48,7 @@ function RenderSearchPage(){
                   if (e.key === 'Enter') { // Check if the pressed key is Enter 
                     e.preventDefault();
                     submitInput(); 
+                    setInputUser("");
                   }
                 }}
               />
