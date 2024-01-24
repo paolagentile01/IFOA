@@ -3,7 +3,7 @@ import { Card, Container, Row, Col } from "react-bootstrap";
 import { useParams, Link } from "react-router-dom";
 import RenderDetailPage from "../components/Details";
 import { useDispatch, useSelector } from "react-redux";
-
+import DetailsCards from "../components/DetailsCards";
 import { fetchClimeDetails } from "../actions/fetchDataActions";
 
 function WeatherRealTime() {
@@ -12,45 +12,17 @@ function WeatherRealTime() {
   let city = location.find((obj) => obj.city.city.name === cityName);
 /*   console.log(city.city.city.coord);
  */
-
+console.log(city.details.main);
   const dispatch = useDispatch();
 
   useEffect(() => {
    dispatch(fetchClimeDetails(city.city.city.coord.lat, city.city.city.coord.lon ));
   }, []);
 
-  function ObjectCards({data}) {
-    return (
-        <Row className=" g-4 row-cols-xs-2 row-cols-md-3">
-          {Object.entries(data).map(([key, value]) => (
-            <Col key={key}>
-              <Card className="card-transparent bg-glassy text-light rounded-5">
-                <Card.Body>
-                  <Card.Title>{key}</Card.Title>
-                  <Card.Text>{checkUnit(key, value)}</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-    );
-  }
-  
-  function checkUnit(key, value) {
-    if (key.includes("temp") || key.includes("feels")) {
-      return `${value.toFixed(0)}°C`;
-    } else if (key === "humidity") {
-      return `${value}%`;
-    } else if (key === "pressure") {
-      return `${value} hPa`;
-    } else {
-      return value;
-    }
-  }
 
   return (
     location?(
-      <Container fluid className=" change-background">
+      <Container fluid className="p-3 change-background">
        {/*  <video src="" autoPlay muted loop></video> */}
        <Row>
         <Col>
@@ -69,7 +41,7 @@ function WeatherRealTime() {
               <Row>
                 <Col>
                 <RenderDetailPage city={city} />
-                  <ObjectCards data={city.details.main} />  
+                  <DetailsCards data={city.details} />  
                 </Col>
               </Row>
       </Container>

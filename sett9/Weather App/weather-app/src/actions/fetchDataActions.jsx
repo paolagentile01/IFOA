@@ -15,17 +15,19 @@ export function fetchDataSearch(location) {
     
           console.log(data1);
           console.log(data2);
-    
 
-          const cityData = {
-            city: data1,
-            details: data2,
-          };
+          if (response1.ok && response2.ok) {
+            const cityData = {
+              city: data1,
+              details: data2,
+            };
+            dispatch({ type: FETCHING_ERROR, payload: null});
+            dispatch({ type: GET_DATA, payload: cityData });
 
-          dispatch({ type: GET_DATA, payload: cityData });
+          }else{
+            dispatch({ type: FETCHING_ERROR, payload: true});
+          }
         } catch (error) {
-          const errorMessage = 'Something went wrong';
-          dispatch({ type: FETCHING_ERROR, payload: errorMessage});
           console.log(error);
         }
       };

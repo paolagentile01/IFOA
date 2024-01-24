@@ -61,7 +61,7 @@ function AirQuality() {
   return (
     <div xs={6}>
       <p className="my-0" style={{ fontSize: "22px", fontWeight: "600" }}>
-        {airQuality}
+        {aqi} - {airQuality}
       </p>
       <span style={{ fontSize: "14px", fontWeight: "300" }}>
         {airQualityDescription}

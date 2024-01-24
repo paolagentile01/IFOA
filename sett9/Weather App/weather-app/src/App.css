@@ -58,7 +58,7 @@ body {
 
 .card-transparent{
   width: 210px;
-  height: 210px !important;
+  height: 220px !important;
   margin: 0 auto ;
   cursor: pointer;
   background:inherit!important;
