@@ -77,18 +77,18 @@ body {
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 }
-/* .change-background{
+.change-background{
   background: url('./assets/stars.gif')  !important;
   background-repeat: no-repeat;
   width: 100% !important;
 }
- */
-.change-background{
+ 
+/* .change-background{
   background: url('https://i.pinimg.com/564x/56/77/30/567730c4a829f90603a416f6107b3bf8.jpg')  !important;
   background-repeat: no-repeat;
   width: 100% !important;
   background-size: cover !important;
-}
+} */
 
 
  input[type="range"] {

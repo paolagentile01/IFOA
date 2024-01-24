@@ -52,11 +52,11 @@ function RenderSearchPage(){
                   }
                 }}
               />
-            {inputUser.length > 0 && (
+{/*             {inputUser.length > 0 && (
               <Dropdown className="bg-light text-dark rounded-bottom-5 p-3">
                 <Dropdown.Item href="#/action-1" className="mb-2">Action</Dropdown.Item>
               </Dropdown>
-            )}
+            )} */}
             </Col>
             <div>
              <Button type="button" className="d-none d-lg-block btn-dark search-btn " onClick={submitInput} >
