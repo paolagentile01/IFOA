@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import { useEffect, useState } from "react";
 import WeatherRealTime from './pages/WeatheRealTime';
 
+//Order of the pages and/or components: App.jsx, SearchPage.jsx, CityCard.jsx, CurrentTime.jsx, WeatherRealTime.jsx, DetailsCards.jsx, Details.jsx, AirQuality.jsx, ModalFullScreen.jsx
 
 function App() {   
   return (
@@ -17,7 +18,7 @@ function App() {
               <Routes>
                 <Route path='/' element={<SearchPage />}></Route>
                 <Route path='/details/:cityName' element={<WeatherRealTime />}></Route>
-                <Route path='*' element={<NotFound />}></Route>
+                <Route path='*' element={<NotFound />}></Route> 
               </Routes>
         </BrowserRouter>
       </Provider>
