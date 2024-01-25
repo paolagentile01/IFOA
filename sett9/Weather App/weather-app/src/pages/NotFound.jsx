@@ -2,7 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 
 
-function NotFound(){
+function NotFound(){ //This page is shown when the user goes to a nonexistent url
 
 
     return(

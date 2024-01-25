@@ -1,6 +1,51 @@
   import { Card, Row, Col } from "react-bootstrap";
 
-  function DetailsCards({ data }) {
+  function DetailsCards({ data, handleModal }) { // this component renders all the cards at the bottom of the page (about the current weather like pressure, feels, like, humidity, etc..)
+    let currentTemperature = (data.main.temp).toFixed(0);
+
+    
+     function getFeelsDescription(value){
+      value = value.toFixed(0);
+      if (value < currentTemperature){
+        return (<p >Wind is making it feel cooler.</p>)
+      } else if (value === currentTemperature){
+          return (<p>Similar to the actual temperature.</p>)
+      } else if (value > currentTemperature){
+        return (<p>Humidity is making it feel warmer.</p>)
+    }
+     }
+
+    function visibilityCalc(data) {
+      let  chilometers= (data/1000).toFixed(1);
+      if(chilometers >= 10){
+        return (
+          <div>
+          <h3>{chilometers}km</h3>
+          <Card.Text style={{ fontSize: "16px" }}>
+          It's perfectly clear right now.
+        </Card.Text>
+          </div>
+        )
+      }else if(chilometers < 10 && chilometers > 5){
+        return (
+          <div>
+          <h3>{chilometers}km</h3>
+          <Card.Text style={{ fontSize: "16px" }}>
+          Light haze is affecting visibility.
+        </Card.Text>
+          </div>
+        )
+      }else if(chilometers <= 5){
+        return (
+          <div>
+          <h3>{chilometers}km</h3>
+          <Card.Text style={{ fontSize: "16px" }}>
+          Haze is affecting visibility.
+        </Card.Text>
+          </div>
+        )
+      }
+    }
     function calculateTime(timestamp, timezoneOffset) {
       const date = new Date(timestamp * 1000);
       const utcOffset = date.getTimezoneOffset() * 60000; // Convert minutes to milliseconds
@@ -71,10 +116,34 @@
         case "deg":
           info = {
             keyName: "WIND DEGREE",
-            cardIcon: null,
+            cardIcon: (<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-compass" viewBox="0 0 16 16">
+            <path d="M8 16.016a7.5 7.5 0 0 0 1.962-14.74A1 1 0 0 0 9 0H7a1 1 0 0 0-.962 1.276A7.5 7.5 0 0 0 8 16.016m6.5-7.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0"/>
+            <path d="m6.94 7.44 4.95-2.83-2.83 4.95-4.949 2.83 2.828-4.95z"/>
+          </svg>),
             unit: "deg"
           };
           break;
+
+        case "sea_level":
+            info = {
+              keyName: "SEA LEVEL",
+              cardIcon: (<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-water" viewBox="0 0 16 16">
+              <path d="M.036 3.314a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0L.314 3.964a.5.5 0 0 1-.278-.65m0 3a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0L.314 6.964a.5.5 0 0 1-.278-.65m0 3a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0L.314 9.964a.5.5 0 0 1-.278-.65m0 3a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.757-.703a.5.5 0 0 1-.278-.65"/>
+            </svg>),
+              unit: "hPa"
+            };
+          break;
+
+          case "grnd_level":
+            info = {
+              keyName: "GROUND LEVEL",
+              cardIcon: (<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-globe-europe-africa" viewBox="0 0 16 16">
+              <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M3.668 2.501l-.288.646a.847.847 0 0 0 1.479.815l.245-.368a.81.81 0 0 1 1.034-.275.81.81 0 0 0 .724 0l.261-.13a1 1 0 0 1 .775-.05l.984.34q.118.04.243.054c.784.093.855.377.694.801-.155.41-.616.617-1.035.487l-.01-.003C8.274 4.663 7.748 4.5 6 4.5 4.8 4.5 3.5 5.62 3.5 7c0 1.96.826 2.166 1.696 2.382.46.115.935.233 1.304.618.449.467.393 1.181.339 1.877C6.755 12.96 6.674 14 8.5 14c1.75 0 3-3.5 3-4.5 0-.262.208-.468.444-.7.396-.392.87-.86.556-1.8-.097-.291-.396-.568-.641-.756-.174-.133-.207-.396-.052-.551a.33.33 0 0 1 .42-.042l1.085.724c.11.072.255.058.348-.035.15-.15.415-.083.489.117.16.43.445 1.05.849 1.357L15 8A7 7 0 1 1 3.668 2.501"/>
+            </svg>),
+              unit: "hPa"
+            };
+          break;
+    
   
         default:
           break;
@@ -98,13 +167,14 @@
             <Col key={key}>
               <Card className="card-transparent bg-glassy text-light rounded-5">
                 <Card.Body>
-                  <Card.Title className="d-flex opacity-50">
+                  <Card.Title className="d-flex opacity-50 mb-3">
                     {getCardInfo(key).cardIcon}
                     <span className="ms-1" style={{ fontSize: "14px" }}>
                       {getCardInfo(key).keyName}
                     </span>
                   </Card.Title>
                   <h3>{checkUnit(key, value)}</h3>
+                  {key.includes("feels")? getFeelsDescription(value):null}
                 </Card.Body>
               </Card>
             </Col>
@@ -114,7 +184,7 @@
           <Col key={key}>
             <Card className="card-transparent bg-glassy text-light rounded-5">
               <Card.Body>
-                <Card.Title className="d-flex opacity-50">
+                <Card.Title className="d-flex opacity-50 mb-3">
                   {getCardInfo(key).cardIcon}
                   <span className="ms-1" style={{ fontSize: "14px" }}>
                     {getCardInfo(key).keyName}
@@ -128,7 +198,7 @@
         <Col>
           <Card className="card-transparent bg-glassy text-light rounded-5">
             <Card.Body>
-              <Card.Title className="d-flex opacity-50">
+              <Card.Title className="d-flex opacity-50 mb-3">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-sunset-fill" viewBox="0 0 16 16">
                   <path d="M7.646 4.854a.5.5 0 0 0 .708 0l1.5-1.5a.5.5 0 0 0-.708-.708l-.646.647V1.5a.5.5 0 0 0-1 0v1.793l-.646-.647a.5.5 0 1 0-.708.708zm-5.303-.51a.5.5 0 0 1 .707 0l1.414 1.413a.5.5 0 0 1-.707.707L2.343 5.05a.5.5 0 0 1 0-.707zm11.314 0a.5.5 0 0 1 0 .706l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zM11.709 11.5a4 4 0 1 0-7.418 0H.5a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1h-3.79zM0 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 0 10m13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/>
                 </svg>
@@ -146,7 +216,7 @@
         <Col>
           <Card className="card-transparent bg-glassy text-light rounded-5">
             <Card.Body>
-              <Card.Title className="d-flex opacity-50">
+              <Card.Title className="d-flex opacity-50 mb-3">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-eye-fill" viewBox="0 0 16 16">
                   <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
                   <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
@@ -154,11 +224,11 @@
                 <span className="ms-1" style={{ fontSize: "14px" }}>
                   VISIBILITY 
                 </span>
-              </Card.Title>
-              <h3>{data.visibility}m</h3>
-              <Card.Text style={{ fontSize: "16px" }}>
+              </Card.Title> 
+              <Card.Text style={{ fontSize: "13px" }}>
                 The maximum value of visibility is 10 km.
               </Card.Text>
+              {visibilityCalc(data.visibility)}
             </Card.Body>
           </Card>
         </Col>

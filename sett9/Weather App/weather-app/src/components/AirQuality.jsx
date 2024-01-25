@@ -2,18 +2,28 @@ import { useState, useEffect } from "react";
 import { Col, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import FullscreenModal from "./ModalFullScreen";
 
-function AirQuality() {
-  const airPollutionData = useSelector((state) => state.fetchDetails);
+function AirQuality({handleModal}) { //this component displays air quality information
+  const airPollutionData = useSelector((state) => state.fetchDetails); // access air pollution data from the store.
   const navigate = useNavigate();
   const [selectedRange, setSelectedRange] = useState("");
 
-  if (!airPollutionData) {
-    return <div>Loading...</div>;
-  }
+  const [show, setShow] = useState(false);
 
+  const [AccordionValue, setAccordionValue] = useState("See more");
+
+  function handleModal(){
+    setShow((!show));
+    if(show){
+      setAccordionValue("See more");
+    } else{
+      setAccordionValue("Close");
+    }
+  }
+console.log(airPollutionData)
   const aqi = airPollutionData[0]?.climeDetails.list[0].main.aqi;
-  const co = airPollutionData[0]?.climeDetails.list[0].components.co;
+
 
   useEffect(() => {
     setSelectedRange(aqi);
@@ -22,7 +32,7 @@ function AirQuality() {
 
   let airQuality;
   let airQualityDescription;
-  switch (aqi) {
+  switch (aqi) { //`switch` statement that determines the air quality level and description based on the air quality index (AQI) value obtained from the air pollution data.
     case 1:
       airQuality = "Good";
       airQualityDescription =
@@ -58,7 +68,7 @@ function AirQuality() {
     setSelectedRange(e.target.value);
   };
 
-  return (
+  return ( //renders the air quality level and description along with an input range element that shows the range of AQI.
     <div xs={6}>
       <p className="my-0" style={{ fontSize: "22px", fontWeight: "600" }}>
         {aqi} - {airQuality}
@@ -77,11 +87,11 @@ function AirQuality() {
         onChange={handleInputChange}
         disabled
       />
-      <Link
-        onClick={() => navigate(`/details/${city.city.city?.name}`)}
+      <Link onClick={() => handleModal()} //The `Link` component triggers the `handleModal` function when clicked. This function toggles the modal visibility state and updates the accordion value accordingly.
+    
         className="nav-link d-flex justify-content-between border-top opacity-50 pt-2"
       >
-        <span style={{ fontSize: "16px" }}>See More</span>
+        <span className="mb-2" style={{ fontSize: "16px" }}>{AccordionValue}</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 320 512"
@@ -92,8 +102,10 @@ function AirQuality() {
           <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
         </svg>
       </Link>
+      <FullscreenModal show={show} handleModal={handleModal} airData={airPollutionData[0]?.climeDetails.list[0]?.components} /> 
     </div>
-  );
+  ); //`FullscreenModal` component is rendered based on the `show` state (boolean value) that receives as prop.
+
 }
 
 export default AirQuality;

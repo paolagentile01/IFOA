@@ -3,27 +3,35 @@ import { getWeatherIcon } from "./getWeatherIcons";
 import AirQuality from "./AirQuality";
 
 function RenderDetailPage({city, todayData}) {
-  console.log(todayData);
+  console.log(city.city.city.timezone);
 
-    function FormatData(dt_txt, action) {
-      const date = new Date(dt_txt);
-      const day = date.getDate();
-      const weekday = date.getDay();
+  function FormatData(dt_txt, action, timeZoneShift) {
+    const date = new Date(dt_txt);
   
-      const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-      const dayOfWeekName = daysOfWeek[weekday];
+    // Convert the timezone shift from seconds to milliseconds
+    const timeZoneOffsetMilliseconds = timeZoneShift * 1000;
   
-      if (action === 'daily') {
-        return <span>{dayOfWeekName}</span>;
-      } else {
-        return <span>{date.getHours().toString().padStart(2, '0')}</span>;
-      }
+    // Adjust the date by adding the timezone offset
+    date.setTime(date.getTime() + timeZoneOffsetMilliseconds);
+  
+    const day = date.getDate();
+    const weekday = date.getDay();
+  
+    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const dayOfWeekName = daysOfWeek[weekday];
+  
+    if (action === 'daily') {
+      return <span>{dayOfWeekName}</span>;
+    } else {
+      return <span>{date.getHours().toString().padStart(2, '0')}</span>;
     }
+  }
+  
     
     // Group forecast data by day
-    const dailyForecast = city.city?.list.reduce((acc, day) => {
+    const dailyForecast = city.city?.list.reduce((acc, day) => { //this function is used to calculate the weekly forecast because it is not available in the API (collects data for each day and calculates their minimum and maximum temperature)
       const date = new Date(day.dt_txt);
-      const weekday = date.getDay();
+      const weekday = date.getDay(); 
       const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
       const dayOfWeekName = daysOfWeek[weekday];
       
@@ -45,7 +53,7 @@ function RenderDetailPage({city, todayData}) {
       return acc;
     }, []);
 
-  return (
+  return (  // this displays both the hourly forecats of the day and the weekly forecast
       <>
         <Row className="g-0 bg-glassy p-3 rounded-4 mt-5 mb-3" >
           <div className="d-flex  border-bottom pb-2 opacity-50">
@@ -71,7 +79,7 @@ function RenderDetailPage({city, todayData}) {
                   </div>
                 ) : (
                   <div className="text-center">
-                            <p>{FormatData(hour.dt_txt)}</p>
+                            <p>{FormatData(hour.dt_txt, null, city.city.city.timezone)}</p>
                             <p>
                             {getWeatherIcon(hour.weather[0].description)}
                             </p>
@@ -85,7 +93,6 @@ function RenderDetailPage({city, todayData}) {
         }
       </Row>
       <Row className="g-0 bg-glassy p-3 rounded-4 mb-3">
-        <Col>
           <div className="d-flex border-bottom pb-2 opacity-50">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-calendar3" viewBox="0 0 16 16">
               <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857z"/>
@@ -95,7 +102,7 @@ function RenderDetailPage({city, todayData}) {
           </div>
           {Object.values(dailyForecast).map((day, index) => (
           (index === 0) ?
-            <Row className="align-items-center my-2" key={index}>
+            <Row className="align-items-center mx-0 px-0 py-2 custom-border-opacity" key={index}>
               <Col xs={3}>
                 <span>Today</span>
               </Col>
@@ -107,10 +114,10 @@ function RenderDetailPage({city, todayData}) {
                   <Col xs={1} className="m-auto">
                     <span style={{ fontSize: '16px' }}>{todayData.temp_min.toFixed(0)}°</span>
                   </Col>
-                  <Col xs={6} className="m-auto">
+                  <Col xs={6} className="ms-auto">
                     <input
-                      min="-40"
-                      max="60"
+                      min="-30"
+                      max="30"
                       defaultValue={(((todayData.temp_min + todayData.temp_max)) / 2).toFixed(0)}
                       type="range"
                       name="range"
@@ -126,9 +133,9 @@ function RenderDetailPage({city, todayData}) {
               </Col>
             </Row>
           :
-            <Row className="align-items-center my-2" key={index}>
+            <Row className="align-items-center mx-0 px-0 py-2 custom-border-opacity" key={index}>
               <Col xs={3}>
-                <span>{FormatData(day.date, 'daily')}</span>
+                <span>{FormatData(day.date,'daily', city.city.city.timezone)}</span>
               </Col>
               <Col xs={3} className="text-center">
                 <span>{getWeatherIcon(day.weather)}</span>
@@ -138,10 +145,10 @@ function RenderDetailPage({city, todayData}) {
                   <Col xs={1} className="m-auto ">
                     <span style={{ fontSize: '16px' }}>{day.minTemp.toFixed(0)}°</span>
                   </Col>
-                  <Col xs={6} className="m-auto">
+                  <Col xs={6} className="ms-auto">
                     <input
-                      min="-40"
-                      max="60"
+                      min="-30"
+                      max="30"
                       defaultValue={(((day.minTemp) + (day.maxTemp)) / 2).toFixed(0)}
                       type="range"
                       name="range"
@@ -157,7 +164,6 @@ function RenderDetailPage({city, todayData}) {
               </Col>
             </Row>
         ))}
-        </Col>
       </Row>
       <Row className="g-0 bg-glassy p-3 rounded-4 mb-3">
         <div className="d-flex align-items-center border-bottom pb-2 mb-2 opacity-50 ">
@@ -167,7 +173,7 @@ function RenderDetailPage({city, todayData}) {
       </svg>
       <span className="ms-1" style={{ fontSize: '13px' }}>AIR QUALITY</span>
         </div>
-      <AirQuality/>
+      <AirQuality/> 
       </Row>
       </>
   );

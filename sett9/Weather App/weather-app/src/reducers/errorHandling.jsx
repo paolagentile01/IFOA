@@ -1,7 +1,7 @@
 import { FETCHING_ERROR } from "../actions/fetchDataActions";
 
 
-const initialState = {
+const initialState = { //this is the reducer for the error handling
     error: null,
   };
   

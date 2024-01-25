@@ -1,8 +1,10 @@
 export const GET_DATA = 'GET_DATA';
 export const FETCHING_ERROR = 'FETCHING_ERROR';
+/* export const IS_LOADING = 'IS_LOADING'; */
+
 const apiKey = '6c6e849d54a8a74f5542dc039fea4bb4';
 
-export function fetchDataSearch(location) {
+export function fetchDataSearch(location) { // action that handles two fetch and possible errors
     return async (dispatch) => {
         try {
           const [response1, response2] = await Promise.all([
@@ -23,19 +25,22 @@ export function fetchDataSearch(location) {
             };
             dispatch({ type: FETCHING_ERROR, payload: null});
             dispatch({ type: GET_DATA, payload: cityData });
+   /*          dispatch({ type: IS_LOADING, payload: false}); */
 
           }else{
             dispatch({ type: FETCHING_ERROR, payload: true});
+       /*      dispatch({ type: IS_LOADING, payload: false}); */
           }
         } catch (error) {
           console.log(error);
+          dispatch({ type: FETCHING_ERROR, payload: true});
         }
       };
 }
 
 export const GET_DETAILS = 'GET_DETAILS';
 
-export function fetchClimeDetails(lat, lon) {
+export function fetchClimeDetails(lat, lon) {// action that handles one fetch and possible error
   return async (dispatch) => {
       try {
         const resp = await fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`);
@@ -47,10 +52,13 @@ export function fetchClimeDetails(lat, lon) {
         const climeData = {
           climeDetails: data
         };
-
+        dispatch({ type: FETCHING_ERROR, payload: null});
         dispatch({ type: GET_DETAILS, payload: climeData });
+     /*    dispatch({ type: IS_LOADING, payload: false}); */
       } catch (error) {
         console.log(error);
+        dispatch({ type: FETCHING_ERROR, payload: true});
+      /*   dispatch({ type: IS_LOADING, payload: false}); */
       }
     };
 }
